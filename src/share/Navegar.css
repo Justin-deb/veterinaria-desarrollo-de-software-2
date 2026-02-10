@@ -1,0 +1,29 @@
+.tabs {
+  display: flex;
+  justify-content: center;   /* centra horizontalmente */
+  gap: 24px;                 /* separación entre pestañas */
+  padding: 16px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab {
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 8px 8px 0 0;
+  color: #444;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* Hover */
+.tab:hover {
+  background: #f3f3f3;
+}
+
+/* Pestaña activa (NavLink la agrega automáticamente) */
+.tab.active {
+  color: #000;
+  background: white;
+  border: 1px solid #ddd;
+  border-bottom: 1px solid white;
+}

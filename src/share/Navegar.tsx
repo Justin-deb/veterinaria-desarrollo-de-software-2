@@ -1,10 +1,13 @@
+import { NavLink } from "react-router-dom";
+import "./Navegar.css";
+
 export default function Navegar(){
     return(
-        <div>
-            <a href="/">Home</a>
-            <a href="/Usuarios">Usuarios</a>
-            <a href="/Mascotas">Mascotas</a>
-            <a href="/Informe">Informe medico</a>
-        </div>
+        <nav className="tabs">
+            <NavLink to="/" className="tab">Home</NavLink>
+            <NavLink to="/usuarios" className="tab">Usuarios</NavLink>
+            <NavLink to="/mascotas" className="tab">Mascotas</NavLink>
+            <NavLink to="/informe" className="tab">Informe médico</NavLink>
+        </nav>
     )
 }
