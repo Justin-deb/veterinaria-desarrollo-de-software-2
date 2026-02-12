@@ -1,6 +1,14 @@
 const Home = () => {
   return (
-    <div className="text-6xl">Home</div>
+    <div>
+
+      <div className="text-6xl">Home</div>
+
+      <a href="../"> </a>
+    </div>
+    
+    
+
   )
 }
 
