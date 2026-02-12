@@ -7,6 +7,7 @@ function App() {
 
   const routes = createBrowserRouter(createRoutesFromElements(
     <Route path='/' element={<MainLayout/>}>
+      
       <Route index element={<Home/>}></Route>
     </Route>
   ));
