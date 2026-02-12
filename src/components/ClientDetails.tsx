@@ -14,8 +14,6 @@ const Client = () => {
       </p>
     </div>
 
-
-   
     <div className="w-full max-w-2xl bg-zinc-900 border border-zinc-800 rounded-2xl p-8 shadow-lg">
 
    
