@@ -3,11 +3,12 @@ import "./app.css";
 import Home from './components/Home';
 import PetProfile from './layouts/PetProfile';
 import Login from './components/Login';
+import ClientDetails from './components/ClientDetails';
 
 function App() {
 
   const routes = createBrowserRouter(createRoutesFromElements(
-    <Route path='/' element={<Login/>}>
+    <Route path='/' element={<ClientDetails/>}>
       <Route index element={<Home/>}></Route>
       <Route path='/pet/:name' element={<PetProfile/>}/>
     </Route>
