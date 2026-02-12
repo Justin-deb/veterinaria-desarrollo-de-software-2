@@ -7,10 +7,10 @@
 }
 
 .tab {
-  text-decoration: none;
+  text-decoration: underline;
   padding: 10px 18px;
   border-radius: 8px 8px 0 0;
-  color: #444;
+  color:blue;
   font-weight: 500;
   transition: all 0.2s ease;
 }
@@ -26,4 +26,19 @@
   background: white;
   border: 1px solid #ddd;
   border-bottom: 1px solid white;
+}
+
+.mascotas {
+  display: flex;
+  justify-content: center;   
+  gap: 24px;                
+  padding: 16px 0;
+  
+}
+
+.mascota{
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 16px 0;
 }

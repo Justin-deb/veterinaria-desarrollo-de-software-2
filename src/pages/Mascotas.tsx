@@ -1,8 +1,8 @@
 export default function Mascotas() {
     return (
-        <div className="mascotas">
-            <h1>Mascotas</h1>
-            <p>Registro y perfil de mascotas</p>
+        <div >
+            <h1 className="mascotas">Mascotas</h1>
+            <p className="mascota">Registro y perfil de mascotas</p>
         </div>
     )
 }
