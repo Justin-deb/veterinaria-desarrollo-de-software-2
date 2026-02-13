@@ -9,15 +9,16 @@ const ClientDetailsPage = () => {
   const { clientID } = useContext(ClientContext);
 
   useEffect(() => {
-    const loadClient = async() => {
-        try {
-          setClient(await getClientByID(clientID));
-        } catch (error) {
-          console.log(error);
-        }
+    const loadClient = async () => {
+      try {
+        setClient(await getClientByID(clientID));
+        console.log(client)
+      } catch (error) {
+        console.log(error);
       }
+    };
 
-      loadClient();
+    loadClient();
   }, [clientID]);
 
   return (
@@ -30,15 +31,14 @@ const ClientDetailsPage = () => {
       </div>
 
       <div className="w-full max-w-2xl bg-zinc-900 border border-zinc-800 rounded-2xl p-8 shadow-lg">
-  <div className="flex items-center gap-6 mb-8">
-    <div className="relative">
-      <div className="w-24 h-24 rounded-full border-2 border-purple-500 bg-zinc-800 flex items-center justify-center">
-        <FaUser className="text-4xl text-purple-500" />
-      </div>
+        <div className="flex items-center gap-6 mb-8">
+          <div className="relative">
+            <div className="w-24 h-24 rounded-full border-2 border-purple-500 bg-zinc-800 flex items-center justify-center">
+              <FaUser className="text-4xl text-purple-500" />
+            </div>
 
-      <button className="absolute bottom-0 right-0 bg-purple-600 w-8 h-8 rounded-full flex items-center justify-center text-sm">
-      </button>
-    </div>
+            <button className="absolute bottom-0 right-0 bg-purple-600 w-8 h-8 rounded-full flex items-center justify-center text-sm"></button>
+          </div>
 
           <div>
             <h2 className="text-lg font-semibold">Profile Photo</h2>
@@ -49,16 +49,30 @@ const ClientDetailsPage = () => {
         </div>
 
         <form className="space-y-6">
-          <div>
-            <label className="block mb-2 text-sm text-zinc-400">
-              Full Name
-            </label>
-            <input
-              type="text"
-              value={client?.fullName || ""}
-              readOnly
-              className="w-full bg-black border border-zinc-700 rounded-lg px-4 py-3"
-            />
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label className="block mb-2 text-sm text-zinc-400">
+                First Name
+              </label>
+              <input
+                type="text"
+                value={client?.firstName ?? ""}
+                readOnly
+                className="w-full bg-black border border-zinc-700 rounded-lg px-4 py-3"
+              />
+            </div>
+
+            <div>
+              <label className="block mb-2 text-sm text-zinc-400">
+                Last Name
+              </label>
+              <input
+                type="text"
+                value={client?.LastName ?? ""}
+                readOnly
+                className="w-full bg-black border border-zinc-700 rounded-lg px-4 py-3"
+              />
+            </div>
           </div>
 
           <div>

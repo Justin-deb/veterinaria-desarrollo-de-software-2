@@ -1,6 +1,7 @@
 [
   {
-    "fullName": "Ana María López",
+    "firstName": "Ana",
+    "LastName": "María López",
     "email": "ana.lopez@example.com",
     "phone": "+506 8877-4455",
     "password": "AnaML123",
@@ -49,7 +50,8 @@
     ]
   },
   {
-    "fullName": "Carlos Eduardo Vargas",
+    "firstName": "Carlos",
+    "LastName": "Eduardo Vargas",
     "email": "carlos.vargas@mailfalso.com",
     "phone": "+506 8422-1199",
     "password": "CEV009",
@@ -73,7 +75,8 @@
     ]
   },
   {
-    "fullName": "María Fernanda Cruz",
+    "firstName": "María",
+    "secondName": "Fernanda Cruz",
     "email": "mfer.cruz@example.org",
     "phone": "+506 8680-3321",
     "password": "Fernanda842",
@@ -122,7 +125,8 @@
     ]
   },
   {
-    "fullName": "Jorge Alberto Méndez",
+    "firstName": "Jorge",
+    "secondName": "Alberto Méndez",
     "email": "jorge.mendez@correo-falso.io",
     "phone": "+506 8991-0077",
     "password": "jorge222",
@@ -148,7 +152,8 @@
     ]
   },
   {
-    "fullName": "Valentina Soto",
+    "firstName": "Valentina",
+    "secondName": "Soto",
     "email": "valentina.soto@ejemplo.com",
     "phone": "+506 8777-2233",
     "password": "St554",
