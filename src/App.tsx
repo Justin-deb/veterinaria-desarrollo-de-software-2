@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import PetProfilePage from './pages/PetProfilePage';
 import NotFoundPage from './pages/NotFoundPage';
+import PetListPage from './pages/PetListPage';
 
 function App() {
   const [clientID, setClientID] = useState<string>(
@@ -25,7 +26,8 @@ function App() {
       </Route>
       <Route path='/' element={<MainLayout />}>
         <Route index element={<HomePage />} />
-        <Route path='pet/:name' element={<PetProfilePage />} />
+        <Route path='pets/:name' element={<PetProfilePage />} />
+        <Route path='pets' element={<PetListPage/>}/>
 
       </Route>
       <Route path='*' element={<NotFoundPage/>}/>
