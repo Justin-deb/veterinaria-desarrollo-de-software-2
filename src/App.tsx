@@ -9,7 +9,7 @@ import MainLayout from './layouts/MainLayout';
 function App() {
 
   const routes = createBrowserRouter(createRoutesFromElements(
-    <Route path='/' element={<MainLayout/>}>
+    <Route path='/' element={<Login/>}>
       <Route index element={<Home/>}></Route>
       <Route path='/pet/:name' element={<PetProfile/>}/>
     </Route>

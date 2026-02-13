@@ -1,9 +1,7 @@
 import { useState } from "react";
 import type { Client } from "../Models/Client.model";
 
-
 const ClientDetails = () => {
-
   const [client, setClient] = useState<Client | null>(null);
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center px-6 py-12">
@@ -13,8 +11,6 @@ const ClientDetails = () => {
           Manage your contact information and communication preferences.
         </p>
       </div>
-
-
 
       <div className="w-full max-w-2xl bg-zinc-900 border border-zinc-800 rounded-2xl p-8 shadow-lg">
 
