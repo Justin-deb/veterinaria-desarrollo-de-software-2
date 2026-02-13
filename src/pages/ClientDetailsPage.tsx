@@ -3,8 +3,8 @@ import type { Client } from "../models/Client.model";
 
 
 const ClientDetailsPage = () => {
+  const [client, setClient] = useState<Client | undefined>();
 
-  const [client, setClient] = useState<Client | null>(null);
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center px-6 py-12">
       <div className="text-center mb-10">

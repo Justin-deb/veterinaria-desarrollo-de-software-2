@@ -1,6 +1,8 @@
 import { useContext } from "react"
 import { ClientContext } from "../context/ClientContext";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { getPets } from "../services/Pet.service";
+import PetProfilePage from "./PetProfilePage";
 
 const HomePage = () => {
   const context = useContext(ClientContext);
@@ -11,9 +13,7 @@ const HomePage = () => {
   }
 
   const logoutHandler = () => {
-    console.log(context?.clientID);
     context?.setClientID('-1');
-    console.log(context?.clientID);
     navigate('/login');
   }
 
@@ -21,6 +21,8 @@ const HomePage = () => {
     <div>
 
       <div className="text-6xl">Home</div>
+
+      <Link to={'pet/Milo'}>Ver Mascota</Link>
 
       <button onClick={logoutHandler}>Logout</button>
     </div>
