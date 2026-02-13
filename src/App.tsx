@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import PetProfilePage from './pages/PetProfilePage';
 import NotFoundPage from './pages/NotFoundPage';
+import PetListPage from './pages/PetListPage';
 import ClientDetailsPage from './pages/ClientDetailsPage';
 
 function App() {
@@ -26,7 +27,9 @@ function App() {
       </Route>
       <Route path='/' element={<MainLayout />}>
         <Route index element={<HomePage />} />
-        <Route path='pet/:name' element={<PetProfilePage />} />
+
+        <Route path='pets/:name' element={<PetProfilePage />} />
+        <Route path='pets' element={<PetListPage/>}/>
         <Route path='clientDetails' element={<ClientDetailsPage />} />
 
       </Route>
