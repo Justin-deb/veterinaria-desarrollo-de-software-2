@@ -4,11 +4,12 @@ import Home from './components/Home';
 import PetProfile from './layouts/PetProfile';
 import Login from './components/Login';
 import ClientDetails from './components/ClientDetails';
+import MainLayout from './layouts/MainLayout';
 
 function App() {
 
   const routes = createBrowserRouter(createRoutesFromElements(
-    <Route path='/' element={<ClientDetails/>}>
+    <Route path='/' element={<MainLayout/>}>
       <Route index element={<Home/>}></Route>
       <Route path='/pet/:name' element={<PetProfile/>}/>
     </Route>
