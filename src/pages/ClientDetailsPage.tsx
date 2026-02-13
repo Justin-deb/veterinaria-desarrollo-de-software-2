@@ -1,8 +1,8 @@
 import { useState } from "react";
-import type { Client } from "../Models/Client.model";
+import type { Client } from "../models/Client.model";
 
 
-const ClientDetails = () => {
+const ClientDetailsPage = () => {
 
   const [client, setClient] = useState<Client | null>(null);
   return (
@@ -112,4 +112,4 @@ const ClientDetails = () => {
   )
 }
 
-export default ClientDetails;
+export default ClientDetailsPage;
