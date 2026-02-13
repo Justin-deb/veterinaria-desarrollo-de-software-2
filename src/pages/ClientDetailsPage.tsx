@@ -1,8 +1,9 @@
 import { useState } from "react";
-import type { Client } from "../Models/ClientModel";
+import type { Client } from "../models/Client.model";
 
 
-const ClientDetails = () => {
+const ClientDetailsPage = () => {
+
   const [client, setClient] = useState<Client | null>(null);
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center px-6 py-12">
@@ -16,7 +17,6 @@ const ClientDetails = () => {
 
 
       <div className="w-full max-w-2xl bg-zinc-900 border border-zinc-800 rounded-2xl p-8 shadow-lg">
-
 
         <div className="flex items-center gap-6 mb-8">
           <div className="relative">
@@ -112,4 +112,4 @@ const ClientDetails = () => {
   )
 }
 
-export default ClientDetails;
+export default ClientDetailsPage;

@@ -1,21 +1,29 @@
 import { useEffect, useState } from "react"
 import { useParams, Link } from "react-router-dom"
-import type { Pet } from "../types/Pet"
-import { getPetByName } from "../service/PetService"
+import type { Pet } from "../models/Pet.model"
+import { getPetByName } from "../services/Pet.service"
 
-export default function PetProfile() {
-  const { name } = useParams<{ name: string }>()
+export default function PetProfilePage() {
+  const { name,clientID } = useParams<{ name: string,clientID:string }>()
   const [pet, setPet] = useState<Pet | null>(null)
   const [loading, setLoading] = useState(true)
   const [tab, setTab] = useState<"summary" | "vaccines" | "consults">("summary")
 
   useEffect(() => {
-    if (!name) return
+    if (!name || !clientID) return
 
-    getPetByName(name)
-      .then(setPet)
-      .catch(() => setPet(null))
-      .finally(() => setLoading(false))
+      const loadPet = async() => {
+        try {
+          setPet(await getPetByName(name,clientID));
+        } catch (error) {
+          console.log(error);
+        }finally{
+          setLoading(false);
+        }
+      }
+
+      loadPet();
+
   }, [name])
 
   if (loading) return <div className="p-6">Cargando...</div>
