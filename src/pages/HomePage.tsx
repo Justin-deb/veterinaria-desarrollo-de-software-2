@@ -21,6 +21,8 @@ const HomePage = () => {
   const [client, setClient] = useState<Client>()
 
   useEffect(() => {
+    if(context.clientID === '-1') return;
+
     const loadClient = async () => {
       try {
         setClient(await getClientByID(context.clientID))
