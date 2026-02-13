@@ -1,20 +1,23 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useParams, Link } from "react-router-dom"
 import type { Pet } from "../models/Pet.model"
 import { getPetByName } from "../services/Pet.service"
+import { ClientContext } from "../context/ClientContext"
 
 export default function PetProfilePage() {
-  const { name,clientID } = useParams<{ name: string,clientID:string }>()
-  const [pet, setPet] = useState<Pet | null>(null)
+  const { name } = useParams<{ name: string }>()
+  const clientContext = useContext(ClientContext);
+  const [pet, setPet] = useState<Pet | undefined>()
   const [loading, setLoading] = useState(true)
   const [tab, setTab] = useState<"summary" | "vaccines" | "consults">("summary")
 
   useEffect(() => {
-    if (!name || !clientID) return
+    if (!name) return
 
       const loadPet = async() => {
         try {
-          setPet(await getPetByName(name,clientID));
+          console.log(name+" " + clientContext!.clientID)
+          setPet(await getPetByName(name,clientContext.clientID));
         } catch (error) {
           console.log(error);
         }finally{

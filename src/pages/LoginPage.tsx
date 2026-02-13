@@ -1,4 +1,4 @@
-import { useContext, useMemo, useState } from "react";
+import { useContext, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Mail, Lock, PawPrint, ArrowRight, AlertCircle } from "lucide-react";
 
@@ -14,8 +14,8 @@ const LoginPage = () => {
   const [is_loading, set_is_loading] = useState(false);
   const [error, set_error] = useState<string | null>(null);
 
-  if(clientContext.clientID !== '-1'){
-    return <Navigate to={'/'}/>
+  if (clientContext.clientID !== "-1") {
+    return <Navigate to={"/"} />;
   }
 
   const handle_submit = async (e: React.FormEvent) => {
@@ -36,20 +36,12 @@ const LoginPage = () => {
         return;
       }
 
-      
-      const foundID:string|null = await LoginClient(normalized_email,password);;
+      const foundID:string|null = await LoginClient(normalized_email,password);
 
       if (!foundID) {
         set_error("No account found with this email address.");
         return;
       }
-
-      // const current_user: CurrentUser = {
-      //   fullName: found.fullName,
-      //   email: found.email,
-      // };
-
-      //localStorage.setItem("current_user", JSON.stringify(current_user));
 
       clientContext?.setClientID(foundID);
 
@@ -98,7 +90,8 @@ const LoginPage = () => {
               Welcome back 👋
             </h1>
             <p className="mt-3 max-w-md text-white/70">
-              Log in to access your pets, upcoming appointments, medical history, and billing.
+              Log in to access your pets, upcoming appointments, medical
+              history, and billing.
             </p>
 
             <div className="mt-10 grid max-w-md grid-cols-2 gap-4">
@@ -149,7 +142,11 @@ const LoginPage = () => {
                 </div>
               )}
 
-              <form onSubmit={handle_submit} className="mt-6 space-y-4">
+              <form
+                noValidate
+                onSubmit={handle_submit}
+                className="mt-6 space-y-4"
+              >
                 <div>
                   <label className="mb-2 block text-sm font-medium text-white/80">
                     Email
@@ -190,12 +187,6 @@ const LoginPage = () => {
                   {is_loading ? "Signing in..." : "Sign in"}
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
                 </button>
-
-                <p className="pt-2 text-center text-xs text-white/45">
-                  By signing in you agree to our{" "}
-                  <span className="text-white/70 cursor-pointer">Terms</span> and{" "}
-                  <span className="text-white/70 cursor-pointer">Privacy Policy</span>.
-                </p>
               </form>
             </div>
 

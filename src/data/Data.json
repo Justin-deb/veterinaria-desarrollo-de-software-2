@@ -1,7 +1,7 @@
 [
   {
     "firstName": "Ana",
-    "lastName": "López",
+    "LastName": "María López",
     "email": "ana.lopez@example.com",
     "phone": "+506 8877-4455",
     "password": "AnaML123",
@@ -51,7 +51,7 @@
   },
   {
     "firstName": "Carlos",
-    "lastName": "Vargas",
+    "LastName": "Eduardo Vargas",
     "email": "carlos.vargas@mailfalso.com",
     "phone": "+506 8422-1199",
     "password": "CEV009",
@@ -76,7 +76,7 @@
   },
   {
     "firstName": "María",
-    "lastName": "Cruz",
+    "secondName": "Fernanda Cruz",
     "email": "mfer.cruz@example.org",
     "phone": "+506 8680-3321",
     "password": "Fernanda842",
@@ -126,7 +126,7 @@
   },
   {
     "firstName": "Jorge",
-    "lastName": "Méndez",
+    "secondName": "Alberto Méndez",
     "email": "jorge.mendez@correo-falso.io",
     "phone": "+506 8991-0077",
     "password": "jorge222",
@@ -153,7 +153,7 @@
   },
   {
     "firstName": "Valentina",
-    "lastName": "Soto",
+    "secondName": "Soto",
     "email": "valentina.soto@ejemplo.com",
     "phone": "+506 8777-2233",
     "password": "St554",
