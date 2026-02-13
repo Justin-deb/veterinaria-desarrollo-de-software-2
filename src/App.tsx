@@ -27,7 +27,6 @@ function App() {
       </Route>
       <Route path='/' element={<MainLayout />}>
         <Route index element={<HomePage />} />
-
         <Route path='pets/:name' element={<PetProfilePage />} />
         <Route path='pets' element={<PetListPage/>}/>
         <Route path='clientDetails' element={<ClientDetailsPage />} />
