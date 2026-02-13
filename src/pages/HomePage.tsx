@@ -9,6 +9,8 @@ import {
   User,
   AlertTriangle,
 } from "lucide-react";
+import { getPets } from "../services/Pet.service";
+import PetProfilePage from "./PetProfilePage";
 
 const HomePage = () => {
   const context = useContext(ClientContext);
@@ -19,9 +21,9 @@ const HomePage = () => {
   }
 
   const logoutHandler = () => {
-    context?.setClientID("-1");
-    navigate("/login");
-  };
+    context?.setClientID('-1');
+    navigate('/login');
+  }
 
   return (
     <div className="min-h-screen bg-black text-white">

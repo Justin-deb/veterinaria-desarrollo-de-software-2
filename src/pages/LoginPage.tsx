@@ -36,10 +36,7 @@ const LoginPage = () => {
         return;
       }
 
-      const foundID: string | null = await LoginClient(
-        normalized_email,
-        password,
-      );
+      const foundID:string|null = await LoginClient(normalized_email,password);
 
       if (!foundID) {
         set_error("No account found with this email address.");
