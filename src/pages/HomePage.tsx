@@ -22,7 +22,7 @@ const HomePage = () => {
 
       <div className="text-6xl">Home</div>
 
-      <Link to={'pet/Milo'}>Ver Mascota</Link>
+      <Link to={'pets'}>Ver Mascotas</Link>
 
       <button onClick={logoutHandler}>Logout</button>
     </div>
