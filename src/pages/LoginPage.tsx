@@ -1,30 +1,22 @@
-import { useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useMemo, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import { Mail, Lock, PawPrint, ArrowRight, AlertCircle } from "lucide-react";
 
-import data_json from "../../public/data/Data.json";
+import { ClientContext } from "../context/ClientContext";
+import { LoginClient } from "../services/Client.service";
 
-type Client = {
-  fullName: string;
-  email: string;
-  phone: string;
-  petList: unknown[];
-};
-
-type CurrentUser = {
-  fullName: string;
-  email: string;
-};
-
-const Login = () => {
+const LoginPage = () => {
+  const clientContext = useContext(ClientContext);
   const navigate = useNavigate();
-
-  const clients = useMemo(() => data_json as Client[], []);
 
   const [email, set_email] = useState("");
   const [password, set_password] = useState("");
   const [is_loading, set_is_loading] = useState(false);
   const [error, set_error] = useState<string | null>(null);
+
+  if(clientContext.clientID !== '-1'){
+    return <Navigate to={'/'}/>
+  }
 
   const handle_submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,9 +24,7 @@ const Login = () => {
     set_is_loading(true);
 
     try {
-      await new Promise((r) => setTimeout(r, 450));
-
-      const normalized_email = email.trim().toLowerCase();
+      const normalized_email = email.trim();
 
       if (!normalized_email) {
         set_error("Please enter your email.");
@@ -46,21 +36,22 @@ const Login = () => {
         return;
       }
 
-      const found = clients.find(
-        (c) => c.email.toLowerCase() === normalized_email,
-      );
+      
+      const foundID:string|null = await LoginClient(normalized_email,password);;
 
-      if (!found) {
+      if (!foundID) {
         set_error("No account found with this email address.");
         return;
       }
 
-      const current_user: CurrentUser = {
-        fullName: found.fullName,
-        email: found.email,
-      };
+      // const current_user: CurrentUser = {
+      //   fullName: found.fullName,
+      //   email: found.email,
+      // };
 
-      localStorage.setItem("current_user", JSON.stringify(current_user));
+      //localStorage.setItem("current_user", JSON.stringify(current_user));
+
+      clientContext?.setClientID(foundID);
 
       navigate("/");
     } finally {
@@ -218,4 +209,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;
