@@ -26,10 +26,11 @@ async function getClients():Promise<Client[]>{
     return data;
 }
 
-export async function getClientByID(clientId:string):Promise<Client | null>{
+export async function getClientByID(clientId:string):Promise<Client | undefined>{
     const clients:Client[] = await getClients();
-
-    const clientFound:Client | undefined = clients.find((c) =>c.id === clientId);
+    
+    const clientFound:Client | undefined = clients.find((c) => c.id === clientId);
+    
 
     if(!clientFound){
         throw new Error(`Client not found`);
