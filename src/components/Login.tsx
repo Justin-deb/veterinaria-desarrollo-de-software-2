@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Mail, Lock, PawPrint, ArrowRight, AlertCircle } from "lucide-react";
 
-import data_json from "../data/Data.json";
+import data_json from "../../public/data/Data.json";
 
 type Client = {
   fullName: string;
