@@ -1,4 +1,4 @@
-import { useContext, useMemo, useState } from "react";
+import { useContext, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Mail, Lock, PawPrint, ArrowRight, AlertCircle } from "lucide-react";
 
@@ -37,7 +37,7 @@ const LoginPage = () => {
       }
 
       
-      const foundID:string|null = await LoginClient(normalized_email,password);;
+      const foundID:string|null = await LoginClient(normalized_email,password);
 
       if (!foundID) {
         set_error("No account found with this email address.");
