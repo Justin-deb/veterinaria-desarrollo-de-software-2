@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams, Link } from "react-router-dom"
-import type { Pet } from "../types/Pet"
-import { getPetByName } from "../service/PetService"
+import type { Pet } from "../Models/Pet.model"
+import { getPetByName } from "../services/Pet.service"
 
 export default function PetProfile() {
   const { name } = useParams<{ name: string }>()
@@ -10,12 +10,26 @@ export default function PetProfile() {
   const [tab, setTab] = useState<"summary" | "vaccines" | "consults">("summary")
 
   useEffect(() => {
+    console.log(name);
     if (!name) return
 
-    getPetByName(name)
-      .then(setPet)
-      .catch(() => setPet(null))
-      .finally(() => setLoading(false))
+    // getPetByName(name)
+    //   .then((pet) => { setPet(pet) })
+    //   .catch((error) => { setPet(null); console.log(error) })
+    //   .finally(() => setLoading(false))
+
+      const loadPet = async() => {
+        try {
+          setPet(await getPetByName(name));
+        } catch (error) {
+          console.log(error);
+        }finally{
+          setLoading(false);
+        }
+      }
+
+      loadPet();
+
   }, [name])
 
   if (loading) return <div className="p-6">Cargando...</div>
