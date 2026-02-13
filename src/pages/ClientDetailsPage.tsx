@@ -68,7 +68,7 @@ const ClientDetailsPage = () => {
               </label>
               <input
                 type="text"
-                value={client?.LastName ?? ""}
+                value={client?.lastName ?? ""}
                 readOnly
                 className="w-full bg-black border border-zinc-700 rounded-lg px-4 py-3"
               />

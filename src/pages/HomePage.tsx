@@ -22,7 +22,11 @@ const HomePage = () => {
 
   useEffect(() => {
     const loadClient = async () => {
-      setClient(await getClientByID(context.clientID))
+      try {
+        setClient(await getClientByID(context.clientID))
+      } catch (error) {
+        console.log(error);
+      }
     } 
     loadClient()
   },[])
