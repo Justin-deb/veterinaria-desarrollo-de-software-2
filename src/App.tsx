@@ -30,7 +30,7 @@ function App() {
         <Route path='pets/:name' element={<PetProfilePage />} />
         <Route path='pets' element={<PetListPage/>}/>
         <Route path='clientDetails' element={<ClientDetailsPage />} />
-
+        
       </Route>
       <Route path='*' element={<NotFoundPage/>}/>
     </>
