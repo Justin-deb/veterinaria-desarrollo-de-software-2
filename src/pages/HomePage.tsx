@@ -9,8 +9,6 @@ import {
   User,
   AlertTriangle,
 } from "lucide-react";
-import { getPets } from "../services/Pet.service";
-import PetProfilePage from "./PetProfilePage";
 import type { Client } from "../models/Client.model";
 import { getClientByID } from "../services/Client.service";
 
