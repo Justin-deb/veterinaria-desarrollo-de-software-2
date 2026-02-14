@@ -37,26 +37,35 @@ const ClientDetailsPage = () => {
         </p>
       </div>
 
-      <div className="w-full max-w-2xl bg-zinc-900 border border-zinc-800 rounded-2xl p-8 shadow-lg">
-        <div className="flex items-center gap-6 mb-8 justify-between">
-          <div className="flex items-center gap-6 mb-8">
+      <div className="w-full max-w-2xl mx-auto bg-zinc-900 border border-zinc-800 rounded-2xl p-6 sm:p-8 shadow-lg">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+          {/* left: avatar + text */}
+          <div className="flex items-center gap-4 sm:gap-6">
             <div className="relative">
-              <div className="w-24 h-24 rounded-full border-2 border-purple-500 bg-zinc-800 flex items-center justify-center">
-                <FaUser className="text-4xl text-purple-500" />
+              <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full border-2 border-purple-500 bg-zinc-800 flex items-center justify-center">
+                <FaUser className="text-3xl sm:text-4xl text-purple-500" />
               </div>
-
-              <button className="absolute bottom-0 right-0 bg-purple-600 w-8 h-8 rounded-full flex items-center justify-center text-sm"></button>
             </div>
 
-            <div>
-              <h2 className="text-lg font-semibold">Profile Photo</h2>
-              <p className="text-zinc-400 text-sm">
+            <div className="min-w-0">
+              <h2 className="text-base sm:text-lg font-semibold text-white truncate">
+                Profile Photo
+              </h2>
+              <p className="text-zinc-400 text-xs sm:text-sm mt-1">
                 This will be visible to your veterinarian.
               </p>
             </div>
           </div>
-          <Link to={'/'} className="text-center bg-zinc-800 hover:bg-zinc-700 transition rounded-lg py-3 px-10">Return</Link>
+          
+          <Link
+            to="/"
+            className="w-full sm:w-auto inline-flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 transition rounded-lg py-3 px-8 sm:px-10 text-sm"
+          >
+            Return
+          </Link>
         </div>
+
+
 
         <form className="space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
@@ -143,7 +152,7 @@ const ClientDetailsPage = () => {
           </p>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
