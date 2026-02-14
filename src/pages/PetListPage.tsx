@@ -1,23 +1,55 @@
 import { Link } from "react-router-dom"
 import { FaPlusCircle } from "react-icons/fa";
+import { useContext, useEffect, useState } from "react";
+import { ClientContext } from "../context/ClientContext";
+import type { Pet } from "../models/Pet.model";
+import { getPets } from "../services/Pet.service";
+import PetCard from "../components/PetCard";
+
+import { FaDog, FaCalendarAlt } from "react-icons/fa";
 
 const PetListPage = () => {
-  return (
-    <div className="h-screen bg-black">
-        <div className="flex justify-between items-center py-10 px-20">
-            <div className="space-y-3">
-                <p className="text-5xl text-white">My Pets</p>
-                <p className="text-neutral-500">central dashboard for your pet's healthcare journey</p>
-            </div>
-            <div>
-                <Link to={'/addpet'} className="flex items-center space-x-2 text-white bg-purple-700 px-5 py-3 rounded-lg">
-                    <FaPlusCircle/>
-                    <p>Add New Pet</p>
-                </Link>
-            </div>
+    const clientContext = useContext(ClientContext);
+    const [petList, setPetList] = useState<Pet[]>();
+    const [loading, setLoading] = useState<boolean>();
+
+    useEffect(() => {
+        const loadPets = async () => {
+            try {
+                setPetList(await getPets(clientContext.clientID));
+            } catch (error) {
+                console.log(error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        loadPets();
+    }, [])
+
+
+    return (
+        <div className="min-h-screen bg-black text-gray-100">
+
+            {/* Page main */}
+            <main className="mx-auto max-w-7xl px-6 py-10">
+                {/* Title */}
+                <section className="mb-8">
+                    <h1 className="text-4xl font-extrabold">My Pets</h1>
+                    <p className="mt-2 text-neutral-400">Central dashboard for your pet’s healthcare journey.</p>
+                </section>
+
+                {/* Cards */}
+                <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    {/* Card (repeat 4 times; you can map this later) */}
+                    {!petList ? (<p>No pets to show</p>) : petList.map((pet) => <PetCard pet={pet} />)}
+                </section>
+
+                <Link to={'/'} className="block w-full text-center bg-purple-500 hover:bg-purple-400 text-white py-2 rounded-lg font-semibold">Back Home</Link>
+            </main>
+
         </div>
-    </div>
-  )
+    );
+
 }
 
 export default PetListPage

@@ -3,15 +3,17 @@ import type { Client } from "../models/Client.model";
 import { ClientContext } from "../context/ClientContext";
 import { getClientByID } from "../services/Client.service";
 import { FaUser } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 
 const ClientDetailsPage = () => {
   const [client, setClient] = useState<Client | undefined>();
-  const { clientID } = useContext(ClientContext);
+  const clientContext = useContext(ClientContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadClient = async () => {
       try {
-        setClient(await getClientByID(clientID));
+        setClient(await getClientByID(clientContext.clientID));
         console.log(client)
       } catch (error) {
         console.log(error);
@@ -19,7 +21,12 @@ const ClientDetailsPage = () => {
     };
 
     loadClient();
-  }, [clientID]);
+  }, []);
+
+  const logoutHandler = () => {
+    clientContext.setClientID('-1');
+    navigate('/login');
+  }
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center px-6 py-12">
@@ -31,21 +38,24 @@ const ClientDetailsPage = () => {
       </div>
 
       <div className="w-full max-w-2xl bg-zinc-900 border border-zinc-800 rounded-2xl p-8 shadow-lg">
-        <div className="flex items-center gap-6 mb-8">
-          <div className="relative">
-            <div className="w-24 h-24 rounded-full border-2 border-purple-500 bg-zinc-800 flex items-center justify-center">
-              <FaUser className="text-4xl text-purple-500" />
+        <div className="flex items-center gap-6 mb-8 justify-between">
+          <div className="flex items-center gap-6 mb-8">
+            <div className="relative">
+              <div className="w-24 h-24 rounded-full border-2 border-purple-500 bg-zinc-800 flex items-center justify-center">
+                <FaUser className="text-4xl text-purple-500" />
+              </div>
+
+              <button className="absolute bottom-0 right-0 bg-purple-600 w-8 h-8 rounded-full flex items-center justify-center text-sm"></button>
             </div>
 
-            <button className="absolute bottom-0 right-0 bg-purple-600 w-8 h-8 rounded-full flex items-center justify-center text-sm"></button>
+            <div>
+              <h2 className="text-lg font-semibold">Profile Photo</h2>
+              <p className="text-zinc-400 text-sm">
+                This will be visible to your veterinarian.
+              </p>
+            </div>
           </div>
-
-          <div>
-            <h2 className="text-lg font-semibold">Profile Photo</h2>
-            <p className="text-zinc-400 text-sm">
-              This will be visible to your veterinarian.
-            </p>
-          </div>
+          <Link to={'/'} className="text-center bg-zinc-800 hover:bg-zinc-700 transition rounded-lg py-3 px-10">Return</Link>
         </div>
 
         <form className="space-y-6">
@@ -105,11 +115,12 @@ const ClientDetailsPage = () => {
           <hr className="border-zinc-800" />
 
           <div className="space-y-4">
-            <button className="w-full bg-gradient-to-r from-purple-600 to-purple-500 hover:opacity-90 transition rounded-lg py-3 font-semibold">
+            <button className="w-full bg-linear-to-r from-purple-600 to-purple-500 hover:opacity-90 transition rounded-lg py-3 font-semibold">
               Save Changes
             </button>
 
-            <button className="w-full bg-zinc-800 hover:bg-zinc-700 transition rounded-lg py-3">
+
+            <button className="w-full bg-zinc-800 hover:bg-zinc-700 transition rounded-lg py-3" onClick={logoutHandler}>
               Log Out
             </button>
           </div>
