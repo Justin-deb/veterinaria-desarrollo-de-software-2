@@ -1,18 +1,45 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
-import MainLayout from './layouts/MainLayout';
 import "./app.css";
-import Home from './components/Home';
+import MainLayout from './layouts/MainLayout';
+import { ClientContext } from './context/ClientContext';
+import { useEffect, useState } from 'react';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import PetProfilePage from './pages/PetProfilePage';
+import NotFoundPage from './pages/NotFoundPage';
+import PetListPage from './pages/PetListPage';
+import ClientDetailsPage from './pages/ClientDetailsPage';
 
 function App() {
+  const [clientID, setClientID] = useState<string>(
+    localStorage.getItem('clientID') || '-1'
+  );
+
+  useEffect(() => {
+    if (clientID !== null) {
+      localStorage.setItem("clientID", clientID);
+    }
+  }, [clientID]);
 
   const routes = createBrowserRouter(createRoutesFromElements(
-    <Route path='/' element={<MainLayout/>}>
-      <Route index element={<Home/>}></Route>
-    </Route>
+    <>
+      <Route path='/login' element={<LoginPage />}>
+      </Route>
+      <Route path='/' element={<MainLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path='pets/:name' element={<PetProfilePage />} />
+        <Route path='pets' element={<PetListPage/>}/>
+        <Route path='clientDetails' element={<ClientDetailsPage />} />
+        
+      </Route>
+      <Route path='*' element={<NotFoundPage/>}/>
+    </>
   ));
 
   return (
-    <RouterProvider router={routes}></RouterProvider>
+    <ClientContext.Provider value={{ clientID, setClientID }}>
+      <RouterProvider router={routes}></RouterProvider>
+    </ClientContext.Provider>
   )
 }
 
