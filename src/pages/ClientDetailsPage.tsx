@@ -28,6 +28,20 @@ const ClientDetailsPage = () => {
     navigate('/login');
   }
 
+  const ChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const { name, value } = e.target; 
+
+  setClient((prev) => {
+    if (!prev) return prev; 
+
+    return {
+      ...prev,     
+      [name]: value
+    };
+  });
+};
+
+
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center px-6 py-12">
       <div className="text-center mb-10">
@@ -75,8 +89,9 @@ const ClientDetailsPage = () => {
               </label>
               <input
                 type="text"
+                name="firstName" 
                 value={client?.firstName ?? ""}
-                readOnly
+                onChange={ChangeHandler}
                 className="w-full bg-black border border-zinc-700 rounded-lg px-4 py-3"
               />
             </div>
@@ -87,8 +102,9 @@ const ClientDetailsPage = () => {
               </label>
               <input
                 type="text"
+                name="lastName"
                 value={client?.lastName ?? ""}
-                readOnly
+                onChange={ChangeHandler}
                 className="w-full bg-black border border-zinc-700 rounded-lg px-4 py-3"
               />
             </div>
@@ -100,8 +116,9 @@ const ClientDetailsPage = () => {
             </label>
             <input
               type="email"
+              name="email"
               value={client?.email || ""}
-              readOnly
+              onChange={ChangeHandler}
               className="w-full bg-black border border-zinc-700 rounded-lg px-4 py-3"
             />
             <p className="text-xs text-zinc-500 mt-2">
@@ -115,8 +132,9 @@ const ClientDetailsPage = () => {
             </label>
             <input
               type="text"
+              name="phone"
               value={client?.phone || ""}
-              readOnly
+              onChange={ChangeHandler}
               className="w-full bg-black border border-zinc-700 rounded-lg px-4 py-3"
             />
           </div>
