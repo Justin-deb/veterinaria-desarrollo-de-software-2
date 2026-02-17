@@ -3,15 +3,17 @@ import type { Client } from "../models/Client.model";
 import { ClientContext } from "../context/ClientContext";
 import { getClientByID } from "../services/Client.service";
 import { FaUser } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 
 const ClientDetailsPage = () => {
   const [client, setClient] = useState<Client | undefined>();
-  const { clientID } = useContext(ClientContext);
+  const clientContext = useContext(ClientContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadClient = async () => {
       try {
-        setClient(await getClientByID(clientID));
+        setClient(await getClientByID(clientContext.clientID));
         console.log(client)
       } catch (error) {
         console.log(error);
@@ -19,7 +21,12 @@ const ClientDetailsPage = () => {
     };
 
     loadClient();
-  }, [clientID]);
+  }, []);
+
+  const logoutHandler = () => {
+    clientContext.setClientID('-1');
+    navigate('/login');
+  }
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center px-6 py-12">
@@ -30,23 +37,35 @@ const ClientDetailsPage = () => {
         </p>
       </div>
 
-      <div className="w-full max-w-2xl bg-zinc-900 border border-zinc-800 rounded-2xl p-8 shadow-lg">
-        <div className="flex items-center gap-6 mb-8">
-          <div className="relative">
-            <div className="w-24 h-24 rounded-full border-2 border-purple-500 bg-zinc-800 flex items-center justify-center">
-              <FaUser className="text-4xl text-purple-500" />
+      <div className="w-full max-w-2xl mx-auto bg-zinc-900 border border-zinc-800 rounded-2xl p-6 sm:p-8 shadow-lg">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+          {/* left: avatar + text */}
+          <div className="flex items-center gap-4 sm:gap-6">
+            <div className="relative">
+              <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full border-2 border-purple-500 bg-zinc-800 flex items-center justify-center">
+                <FaUser className="text-3xl sm:text-4xl text-purple-500" />
+              </div>
             </div>
 
-            <button className="absolute bottom-0 right-0 bg-purple-600 w-8 h-8 rounded-full flex items-center justify-center text-sm"></button>
+            <div className="min-w-0">
+              <h2 className="text-base sm:text-lg font-semibold text-white truncate">
+                Profile Photo
+              </h2>
+              <p className="text-zinc-400 text-xs sm:text-sm mt-1">
+                This will be visible to your veterinarian.
+              </p>
+            </div>
           </div>
-
-          <div>
-            <h2 className="text-lg font-semibold">Profile Photo</h2>
-            <p className="text-zinc-400 text-sm">
-              This will be visible to your veterinarian.
-            </p>
-          </div>
+          
+          <Link
+            to="/"
+            className="w-full sm:w-auto inline-flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 transition rounded-lg py-3 px-8 sm:px-10 text-sm"
+          >
+            Return
+          </Link>
         </div>
+
+
 
         <form className="space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
@@ -105,11 +124,12 @@ const ClientDetailsPage = () => {
           <hr className="border-zinc-800" />
 
           <div className="space-y-4">
-            <button className="w-full bg-gradient-to-r from-purple-600 to-purple-500 hover:opacity-90 transition rounded-lg py-3 font-semibold">
+            <button className="w-full bg-linear-to-r from-purple-600 to-purple-500 hover:opacity-90 transition rounded-lg py-3 font-semibold">
               Save Changes
             </button>
 
-            <button className="w-full bg-zinc-800 hover:bg-zinc-700 transition rounded-lg py-3">
+
+            <button className="w-full bg-zinc-800 hover:bg-zinc-700 transition rounded-lg py-3" onClick={logoutHandler}>
               Log Out
             </button>
           </div>
@@ -132,7 +152,7 @@ const ClientDetailsPage = () => {
           </p>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
