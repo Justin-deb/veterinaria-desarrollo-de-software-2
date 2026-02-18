@@ -5,6 +5,7 @@ import { getClientByID } from "../services/Client.service";
 import { FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { updateClient } from "../services/Client.service";
+import { toast } from "react-toastify";
 
 const ClientDetailsPage = () => {
   const [client, setClient] = useState<Client | undefined>();
@@ -43,18 +44,21 @@ const ClientDetailsPage = () => {
   };
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (!client) return;
+    if (!client) return;
 
-  try {
-    await updateClient(client.id, client);
-    navigate("/");
-  } catch (error) {
-    console.error(error);
-  }
-};
-
+    try {
+      toast.promise(() => updateClient(client.id, client), {
+        pending: "Updating client",
+        error: "Error updating client",
+        success: "Client updated succesfully",
+      }, {theme: "dark"});
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center px-6 py-12">
