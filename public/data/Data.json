@@ -1,202 +1,229 @@
-[
-  {
-    "firstName": "Ana",
-    "lastName": "López",
-    "email": "ana.lopez@example.com",
-    "phone": "+506 8877-4455",
-    "password": "AnaML123",
-    "id": "1",
-    "petList": [
-      {
-        "petName": "Milo",
-        "species": "Dog",
-        "breed": "Labrador Retriever",
-        "age": 4,
-        "appointmentDescriptions": [
-          "2025-01-10: Annual vaccination and dental check-up",
-          "2024-06-05: Consultation for dermatitis - topical treatment"
-        ],
-        "vaccines": ["Rabies", "Parvovirus", "Distemper", "Adenovirus"],
-        "appointments": [
-          {
-            "date": "2025-01-10",
-            "service": "Annual vaccination",
-            "veterinarian": "Dr. Pérez"
-          },
-          {
-            "date": "2024-06-05",
-            "service": "Dermatology consultation",
-            "veterinarian": "Dr. Morales"
-          }
-        ]
-      },
-      {
-        "petName": "Luna",
-        "species": "Cat",
-        "breed": "European Shorthair",
-        "age": 2,
-        "appointmentDescriptions": [
-          "2024-11-20: Spaying surgery with no complications"
-        ],
-        "vaccines": ["Feline Leukemia", "Panleukopenia", "Rabies"],
-        "appointments": [
-          {
-            "date": "2024-11-20",
-            "service": "Spaying surgery",
-            "veterinarian": "Dr. García"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "firstName": "Carlos",
-    "lastName": "Vargas",
-    "email": "carlos.vargas@mailfalso.com",
-    "phone": "+506 8422-1199",
-    "password": "CEV009",
-    "id": "2",
-    "petList": [
-      {
-        "petName": "Kiko",
-        "species": "Bird",
-        "breed": "Budgerigar",
-        "age": 1,
-        "appointmentDescriptions": ["2024-08-02: Wing check and nail trimming"],
-        "vaccines": [],
-        "appointments": [
-          {
-            "date": "2024-08-02",
-            "service": "General check-up",
-            "veterinarian": "Dr. Fuentes"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "firstName": "María",
-    "lastName": "Cruz",
-    "email": "mfer.cruz@example.org",
-    "phone": "+506 8680-3321",
-    "password": "Fernanda842",
-    "id": "3",
-    "petList": [
-      {
-        "petName": "Nube",
-        "species": "Cat",
-        "breed": "Siamese",
-        "age": 6,
-        "appointmentDescriptions": [
-          "2025-02-01: Annual cardiac check-up",
-          "2023-12-15: Blood tests due to weight loss"
-        ],
-        "vaccines": ["Panleukopenia", "Rhinotracheitis", "Calicivirus"],
-        "appointments": [
-          {
-            "date": "2025-02-01",
-            "service": "Cardiology check-up",
-            "veterinarian": "Dr. Salinas"
-          },
-          {
-            "date": "2023-12-15",
-            "service": "Full blood work",
-            "veterinarian": "Dr. Ortega"
-          }
-        ]
-      },
-      {
-        "petName": "Bunny",
-        "species": "Rabbit",
-        "breed": "Mini Lop",
-        "age": 3,
-        "appointmentDescriptions": [
-          "2024-03-10: Dental consultation - incisor trimming"
-        ],
-        "vaccines": ["Myxomatosis (region dependent)"],
-        "appointments": [
-          {
-            "date": "2024-03-10",
-            "service": "Dental consultation",
-            "veterinarian": "Dr. Pacheco"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "firstName": "Jorge",
-    "lastName": "Méndez",
-    "email": "jorge.mendez@correo-falso.io",
-    "phone": "+506 8991-0077",
-    "password": "jorge222",
-    "id": "4",
-    "petList": [
-      {
-        "petName": "Sushi",
-        "species": "Reptile",
-        "breed": "Leopard Gecko",
-        "age": 2,
-        "appointmentDescriptions": [
-          "2024-05-22: Shedding and habitat check (temperature/humidity)"
-        ],
-        "vaccines": [],
-        "appointments": [
-          {
-            "date": "2024-05-22",
-            "service": "General check-up",
-            "veterinarian": "Dr. Rojas"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "firstName": "Valentina",
-    "lastName": "Soto",
-    "email": "valentina.soto@ejemplo.com",
-    "phone": "+506 8777-2233",
-    "password": "St554",
-    "id": "5",
-    "petList": [
-      {
-        "petName": "Oso",
-        "species": "Dog",
-        "breed": "French Bulldog",
-        "age": 5,
-        "appointmentDescriptions": [
-          "2025-03-15: Ear cleaning due to wax buildup",
-          "2024-09-10: Booster vaccination"
-        ],
-        "vaccines": ["Rabies", "Leptospirosis", "Parvovirus"],
-        "appointments": [
-          {
-            "date": "2025-03-15",
-            "service": "Ear cleaning",
-            "veterinarian": "Dr. Herrera"
-          },
-          {
-            "date": "2024-09-10",
-            "service": "Booster vaccination",
-            "veterinarian": "Dr. Campos"
-          }
-        ]
-      },
-      {
-        "petName": "Pip",
-        "species": "Cat",
-        "breed": "Mixed Breed",
-        "age": 8,
-        "appointmentDescriptions": ["2024-10-30: Annual geriatric check-up"],
-        "vaccines": ["Rabies"],
-        "appointments": [
-          {
-            "date": "2024-10-30",
-            "service": "Geriatric check-up",
-            "veterinarian": "Dr. León"
-          }
-        ]
-      }
-    ]
-  }
-]
+{
+  "clients": [
+    {
+      "id": "1",
+      "firstName": "Ana",
+      "lastName": "López",
+      "email": "ana.lopez@example.com",
+      "phone": "+506 8877-4455",
+      "password": "AnaML123",
+      "petList": [
+        {
+          "petName": "Milo",
+          "species": "Dog",
+          "breed": "Labrador Retriever",
+          "age": 4,
+          "appointmentDescriptions": [
+            "2025-01-10: Annual vaccination and dental check-up",
+            "2024-06-05: Consultation for dermatitis - topical treatment"
+          ],
+          "vaccines": [
+            "Rabies",
+            "Parvovirus",
+            "Distemper",
+            "Adenovirus"
+          ],
+          "appointments": [
+            {
+              "date": "2025-01-10",
+              "service": "Annual vaccination",
+              "veterinarian": "Dr. Pérez"
+            },
+            {
+              "date": "2024-06-05",
+              "service": "Dermatology consultation",
+              "veterinarian": "Dr. Morales"
+            }
+          ]
+        },
+        {
+          "petName": "Luna",
+          "species": "Cat",
+          "breed": "European Shorthair",
+          "age": 2,
+          "appointmentDescriptions": [
+            "2024-11-20: Spaying surgery with no complications"
+          ],
+          "vaccines": [
+            "Feline Leukemia",
+            "Panleukopenia",
+            "Rabies"
+          ],
+          "appointments": [
+            {
+              "date": "2024-11-20",
+              "service": "Spaying surgery",
+              "veterinarian": "Dr. García"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "firstName": "Carlos",
+      "lastName": "Vargas",
+      "email": "carlos.vargas@mailfalso.com",
+      "phone": "+506 8422-1199",
+      "password": "CEV009",
+      "petList": [
+        {
+          "petName": "Kiko",
+          "species": "Bird",
+          "breed": "Budgerigar",
+          "age": 1,
+          "appointmentDescriptions": [
+            "2024-08-02: Wing check and nail trimming"
+          ],
+          "vaccines": [],
+          "appointments": [
+            {
+              "date": "2024-08-02",
+              "service": "General check-up",
+              "veterinarian": "Dr. Fuentes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "firstName": "María",
+      "lastName": "Cruz",
+      "email": "mfer.cruz@example.org",
+      "phone": "+506 8680-3321",
+      "password": "Fernanda842",
+      "petList": [
+        {
+          "petName": "Nube",
+          "species": "Cat",
+          "breed": "Siamese",
+          "age": 6,
+          "appointmentDescriptions": [
+            "2025-02-01: Annual cardiac check-up",
+            "2023-12-15: Blood tests due to weight loss"
+          ],
+          "vaccines": [
+            "Panleukopenia",
+            "Rhinotracheitis",
+            "Calicivirus"
+          ],
+          "appointments": [
+            {
+              "date": "2025-02-01",
+              "service": "Cardiology check-up",
+              "veterinarian": "Dr. Salinas"
+            },
+            {
+              "date": "2023-12-15",
+              "service": "Full blood work",
+              "veterinarian": "Dr. Ortega"
+            }
+          ]
+        },
+        {
+          "petName": "Bunny",
+          "species": "Rabbit",
+          "breed": "Mini Lop",
+          "age": 3,
+          "appointmentDescriptions": [
+            "2024-03-10: Dental consultation - incisor trimming"
+          ],
+          "vaccines": [
+            "Myxomatosis (region dependent)"
+          ],
+          "appointments": [
+            {
+              "date": "2024-03-10",
+              "service": "Dental consultation",
+              "veterinarian": "Dr. Pacheco"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "firstName": "Jorge",
+      "lastName": "Méndez",
+      "email": "jorge.mendez@correo-falso.io",
+      "phone": "+506 8991-0077",
+      "password": "jorge222",
+      "petList": [
+        {
+          "petName": "Sushi",
+          "species": "Reptile",
+          "breed": "Leopard Gecko",
+          "age": 2,
+          "appointmentDescriptions": [
+            "2024-05-22: Shedding and habitat check (temperature/humidity)"
+          ],
+          "vaccines": [],
+          "appointments": [
+            {
+              "date": "2024-05-22",
+              "service": "General check-up",
+              "veterinarian": "Dr. Rojas"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "firstName": "Valentina",
+      "lastName": "Soto",
+      "email": "valentina.soto@ejemplo.com",
+      "phone": "+506 8777-2233",
+      "password": "St554",
+      "petList": [
+        {
+          "petName": "Oso",
+          "species": "Dog",
+          "breed": "French Bulldog",
+          "age": 5,
+          "appointmentDescriptions": [
+            "2025-03-15: Ear cleaning due to wax buildup",
+            "2024-09-10: Booster vaccination"
+          ],
+          "vaccines": [
+            "Rabies",
+            "Leptospirosis",
+            "Parvovirus"
+          ],
+          "appointments": [
+            {
+              "date": "2025-03-15",
+              "service": "Ear cleaning",
+              "veterinarian": "Dr. Herrera"
+            },
+            {
+              "date": "2024-09-10",
+              "service": "Booster vaccination",
+              "veterinarian": "Dr. Campos"
+            }
+          ]
+        },
+        {
+          "petName": "Pip",
+          "species": "Cat",
+          "breed": "Mixed Breed",
+          "age": 8,
+          "appointmentDescriptions": [
+            "2024-10-30: Annual geriatric check-up"
+          ],
+          "vaccines": [
+            "Rabies"
+          ],
+          "appointments": [
+            {
+              "date": "2024-10-30",
+              "service": "Geriatric check-up",
+              "veterinarian": "Dr. León"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

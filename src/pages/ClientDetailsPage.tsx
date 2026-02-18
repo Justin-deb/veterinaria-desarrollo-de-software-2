@@ -4,6 +4,7 @@ import { ClientContext } from "../context/ClientContext";
 import { getClientByID } from "../services/Client.service";
 import { FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import { updateClient } from "../services/Client.service";
 
 const ClientDetailsPage = () => {
   const [client, setClient] = useState<Client | undefined>();
@@ -14,7 +15,7 @@ const ClientDetailsPage = () => {
     const loadClient = async () => {
       try {
         setClient(await getClientByID(clientContext.clientID));
-        console.log(client)
+        console.log(client);
       } catch (error) {
         console.log(error);
       }
@@ -24,21 +25,34 @@ const ClientDetailsPage = () => {
   }, []);
 
   const logoutHandler = () => {
-    clientContext.setClientID('-1');
-    navigate('/login');
-  }
+    clientContext.setClientID("-1");
+    navigate("/login");
+  };
 
   const ChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-  const { name, value } = e.target; 
+    const { name, value } = e.target;
 
-  setClient((prev) => {
-    if (!prev) return prev; 
+    setClient((prev) => {
+      if (!prev) return prev;
 
-    return {
-      ...prev,     
-      [name]: value
-    };
-  });
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
+
+  const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  if (!client) return;
+
+  try {
+    await updateClient(client.id, client);
+    navigate("/");
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 
@@ -70,7 +84,7 @@ const ClientDetailsPage = () => {
               </p>
             </div>
           </div>
-          
+
           <Link
             to="/"
             className="w-full sm:w-auto inline-flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 transition rounded-lg py-3 px-8 sm:px-10 text-sm"
@@ -79,9 +93,7 @@ const ClientDetailsPage = () => {
           </Link>
         </div>
 
-
-
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={submitHandler}>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="block mb-2 text-sm text-zinc-400">
@@ -89,7 +101,7 @@ const ClientDetailsPage = () => {
               </label>
               <input
                 type="text"
-                name="firstName" 
+                name="firstName"
                 value={client?.firstName ?? ""}
                 onChange={ChangeHandler}
                 className="w-full bg-black border border-zinc-700 rounded-lg px-4 py-3"
@@ -142,12 +154,18 @@ const ClientDetailsPage = () => {
           <hr className="border-zinc-800" />
 
           <div className="space-y-4">
-            <button className="w-full bg-linear-to-r from-purple-600 to-purple-500 hover:opacity-90 transition rounded-lg py-3 font-semibold">
+            <button
+              type="submit"
+              className="w-full bg-linear-to-r from-purple-600 to-purple-500 hover:opacity-90 transition rounded-lg py-3 font-semibold"
+            >
               Save Changes
             </button>
 
-
-            <button className="w-full bg-zinc-800 hover:bg-zinc-700 transition rounded-lg py-3" onClick={logoutHandler}>
+            <button
+              type="button"
+              className="w-full bg-zinc-800 hover:bg-zinc-700 transition rounded-lg py-3"
+              onClick={logoutHandler}
+            >
               Log Out
             </button>
           </div>
@@ -170,7 +188,7 @@ const ClientDetailsPage = () => {
           </p>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 
