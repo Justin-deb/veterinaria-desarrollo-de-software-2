@@ -37,7 +37,7 @@ const LoginPage = () => {
       }
 
       const foundID:string|null = await LoginClient(normalized_email,password);
-
+      console.log("Login result ", foundID);
       if (!foundID) {
         set_error("No account found with this email address.");
         return;
