@@ -140,8 +140,6 @@ const HomePage = () => {
         </div>
 
         <div className="mt-14">
-          <h3 className="mb-6 text-xl font-semibold">Latest Activities</h3>
-
           <div className="space-y-4">
             <h3 className="mb-6 text-xl font-semibold">Latest Activities</h3>
 

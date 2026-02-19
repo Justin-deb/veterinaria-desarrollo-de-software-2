@@ -5,6 +5,7 @@ export interface Pet {
   species: string;
   breed: string;
   age: number;
+  photoUrl: string;
   appointmentDescriptions: string[];
   vaccines: string[];
   appointments: Appointment[];
