@@ -26,18 +26,6 @@ export async function LoginClient(
 
 }
 
-async function getClients(): Promise<Client[]> {
-  const res = await fetch(DATA_URL);
-
-  if (!res.ok) {
-    throw new Error(`Couldn't fetch data. (Status: ${res.status})`);
-  }
-
-  const data: Client[] = await res.json();
-
-  return data;
-}
-
 export async function getClientByID(
   clientId: string,
 ): Promise<Client | undefined> {

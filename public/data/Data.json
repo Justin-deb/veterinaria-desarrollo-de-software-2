@@ -2,9 +2,9 @@
   "clients": [
     {
       "id": "1",
-      "firstName": "Justin",
-      "lastName": "Estrada",
-      "email": "ana.lopeez@example.com",
+      "firstName": "Ana",
+      "lastName": "López ",
+      "email": "ana.lopez@example.com",
       "phone": "+506 8877-4456",
       "password": "AnaML123",
       "petList": [
