@@ -40,27 +40,15 @@ export default function PetProfilePage() {
   const [tab, setTab] = useState<TabKey>("summary");
   const [error, setError] = useState<string | null>(null);
 
-  if (clientContext?.clientID === "-1") {
-    return <Navigate to="/login" />;
-  }
-
-  const decoded_name = useMemo(() => {
-    try {
-      return name ? decodeURIComponent(name) : "";
-    } catch {
-      return name ?? "";
-    }
-  }, [name]);
-
   useEffect(() => {
-    if (!decoded_name) return;
+    if (!name) return;
 
     const loadPet = async () => {
       try {
         setError(null);
         setLoading(true);
 
-        const found = await getPetByName(decoded_name, clientContext!.clientID);
+        const found = await getPetByName(name, clientContext!.clientID);
         setPet(found);
       } catch (e) {
         setError("Something went wrong while loading this pet.");
@@ -71,12 +59,16 @@ export default function PetProfilePage() {
     };
 
     loadPet();
-  }, [decoded_name, clientContext]);
+  }, [name, clientContext]);
 
-  const header_subtitle = useMemo(() => {
+  if (clientContext?.clientID === "-1") {
+    return <Navigate to="/login" />;
+  }
+
+  /*const header_subtitle = useMemo(() => {
     if (!pet) return "";
     return [pet.species, pet.breed].filter(Boolean).join(" • ");
-  }, [pet]);
+  }, [pet]); */
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -137,9 +129,7 @@ export default function PetProfilePage() {
             <p className="text-lg font-semibold">Pet not found</p>
             <p className="mt-2 text-sm text-zinc-400">
               We couldn’t find a pet named{" "}
-              <span className="text-zinc-200 font-semibold">
-                {decoded_name || "—"}
-              </span>{" "}
+              <span className="text-zinc-200 font-semibold">{name || "—"}</span>{" "}
               for this account.
             </p>
           </div>
@@ -161,14 +151,16 @@ export default function PetProfilePage() {
                   {pet.petName}
                 </h1>
 
-                <p className="mt-2 text-zinc-400">{header_subtitle || "—"}</p>
+                <p className="mt-2 text-zinc-400">{[pet.species, pet.breed].filter(Boolean).join(" • ") || "—"}</p>
               </div>
 
               {/* Corner badge (simple + pro) */}
               <div className="hidden md:flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 shadow-[0_0_0_1px_rgba(255,255,255,0.04)] backdrop-blur">
                 <div className="relative">
                   <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-purple-500/35 to-fuchsia-500/15 ring-1 ring-white/10">
-                    <span className="text-2xl">{pick_pet_emoji(pet.species)}</span>
+                    <span className="text-2xl">
+                      {pick_pet_emoji(pet.species)}
+                    </span>
                   </div>
                   <span className="absolute -bottom-1 -right-1 h-3 w-3 rounded-full bg-emerald-400 ring-2 ring-black" />
                 </div>
