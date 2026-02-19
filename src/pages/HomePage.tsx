@@ -14,7 +14,13 @@ import { getClientByID } from "../services/Client.service";
 import PetActivity from "../components/PetActivity";
 
 const HomePage = () => {
-  const date = new Date(); 
+  const date = new Date();
+  const options = {
+      weekday:'long',
+      year:'numeric',
+      month:'long',
+      day:'numeric'
+}
   const context = useContext(ClientContext);
 
   const [client, setClient] = useState<Client>();
@@ -61,7 +67,7 @@ const HomePage = () => {
           <div className="flex items-center gap-3">
             <div className="inline-flex items-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-2 text-sm text-purple-300">
               <CalendarDays className="h-4 w-4" />
-              Tuesday, October 24th
+              {date.toLocaleString('en-US',options)}
             </div>
           </div>
         </div>
@@ -74,8 +80,14 @@ const HomePage = () => {
             <p className="text-xs font-semibold tracking-wider text-zinc-400">
               TOTAL PETS {/*Datos quemados que hay que quitar */}
             </p>
-            <p className="mt-2 text-4xl font-bold">3</p>
-            <p className="mt-1 text-sm text-zinc-500">Max, Bella, and Cooper</p>
+            <p className="mt-2 text-4xl font-bold">
+              {client.petList ? client.petList.length : 0}
+            </p>
+            <p className="mt-1 text-sm text-zinc-500">
+              {client.petList && client.petList.length > 0
+                ? client.petList.map((pet) => pet.petName).join(", ")
+                : "No pets registered"}
+            </p>
           </div>
 
           <div className="rounded-2xl border border-purple-600/70 bg-zinc-900 p-6">
