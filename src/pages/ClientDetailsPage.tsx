@@ -1,22 +1,23 @@
 import { useContext, useEffect, useState } from "react";
 import type { Client } from "../models/Client.model";
 import { ClientContext } from "../context/ClientContext";
-import { getClientByID } from "../services/Client.service";
+import { getClientByID, updateClient } from "../services/Client.service";
 import { FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { updateClient } from "../services/Client.service";
 import { toast } from "react-toastify";
 
 const ClientDetailsPage = () => {
   const [client, setClient] = useState<Client | undefined>();
+  const [photo_error, set_photo_error] = useState(false);
+
   const clientContext = useContext(ClientContext);
   const navigate = useNavigate();
 
   useEffect(() => {
     const loadClient = async () => {
       try {
-        setClient(await getClientByID(clientContext.clientID));
-        console.log(client);
+        const data = await getClientByID(clientContext.clientID);
+        setClient(data);
       } catch (error) {
         console.log(error);
       }
@@ -36,6 +37,9 @@ const ClientDetailsPage = () => {
     setClient((prev) => {
       if (!prev) return prev;
 
+      // si cambia la foto, reiniciamos el error para que intente cargar de nuevo
+      if (name === "profilePhotoUrl") set_photo_error(false);
+
       return {
         ...prev,
         [name]: value,
@@ -45,20 +49,25 @@ const ClientDetailsPage = () => {
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     if (!client) return;
 
     try {
-      toast.promise(() => updateClient(client.id, client), {
-        pending: "Updating client",
-        error: "Error updating client",
-        success: "Client updated succesfully",
-      }, {theme: "dark"});
+      toast.promise(
+        () => updateClient(client.id, client),
+        {
+          pending: "Updating client",
+          error: "Error updating client",
+          success: "Client updated succesfully",
+        },
+        { theme: "dark" }
+      );
       navigate("/");
     } catch (error) {
       console.error(error);
     }
   };
+
+  const show_photo = !!client?.profilePhotoUrl && !photo_error;
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center px-6 py-12">
@@ -74,8 +83,17 @@ const ClientDetailsPage = () => {
           {/* left: avatar + text */}
           <div className="flex items-center gap-4 sm:gap-6">
             <div className="relative">
-              <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full border-2 border-purple-500 bg-zinc-800 flex items-center justify-center">
-                <FaUser className="text-3xl sm:text-4xl text-purple-500" />
+              <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full border-2 border-purple-500 bg-zinc-800 overflow-hidden flex items-center justify-center">
+                {show_photo ? (
+                  <img
+                    src={client!.profilePhotoUrl}
+                    alt={`${client?.firstName ?? "Client"} profile`}
+                    className="w-full h-full object-cover"
+                    onError={() => set_photo_error(true)}
+                  />
+                ) : (
+                  <FaUser className="text-3xl sm:text-4xl text-purple-500" />
+                )}
               </div>
             </div>
 
@@ -97,7 +115,7 @@ const ClientDetailsPage = () => {
           </Link>
         </div>
 
-        <form className="space-y-6" onSubmit={submitHandler}>
+        <form className="space-y-6 mt-6" onSubmit={submitHandler}>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="block mb-2 text-sm text-zinc-400">
