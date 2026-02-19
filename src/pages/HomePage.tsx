@@ -15,25 +15,34 @@ import PetActivity from "../components/PetActivity";
 
 const HomePage = () => {
   const date = new Date();
+  const options = {
+      weekday:'long',
+      year:'numeric',
+      month:'long',
+      day:'numeric'
+}
   const context = useContext(ClientContext);
 
-  const [client, setClient] = useState<Client>()
+  const [client, setClient] = useState<Client>();
 
   useEffect(() => {
-    if (context.clientID === '-1') return;
+    if (context.clientID === "-1") return;
 
     const loadClient = async () => {
       try {
-        setClient(await getClientByID(context.clientID))
+        setClient(await getClientByID(context.clientID));
       } catch (error) {
         console.log(error);
       }
-    }
-    loadClient()
-  }, [])
+    };
+    loadClient();
+  }, []);
 
   if (context?.clientID === "-1") {
     return <Navigate to={"/login"} />;
+  }
+  if (!client) {
+    return <p>Loading...</p>;
   }
 
   return (
@@ -58,7 +67,7 @@ const HomePage = () => {
           <div className="flex items-center gap-3">
             <div className="inline-flex items-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-2 text-sm text-purple-300">
               <CalendarDays className="h-4 w-4" />
-              Tuesday, October 24th
+              {date.toLocaleString('en-US',options)}
             </div>
           </div>
         </div>
@@ -69,11 +78,15 @@ const HomePage = () => {
               <PawPrint className="h-5 w-5 text-purple-300" />
             </div>
             <p className="text-xs font-semibold tracking-wider text-zinc-400">
-              TOTAL PETS
+              TOTAL PETS {/*Datos quemados que hay que quitar */}
             </p>
-            <p className="mt-2 text-4xl font-bold">3</p>
+            <p className="mt-2 text-4xl font-bold">
+              {client.petList ? client.petList.length : 0}
+            </p>
             <p className="mt-1 text-sm text-zinc-500">
-              Max, Bella, and Cooper
+              {client.petList && client.petList.length > 0
+                ? client.petList.map((pet) => pet.petName).join(", ")
+                : "No pets registered"}
             </p>
           </div>
 
@@ -99,7 +112,7 @@ const HomePage = () => {
             </p>
             <p className="mt-2 text-4xl font-bold">2</p>
             <p className="mt-1 text-sm text-zinc-500">
-              Vaccination &amp; Deworming due
+              Vaccination &amp; Deworming due {/*quejezo */}
             </p>
           </div>
         </div>
@@ -133,7 +146,16 @@ const HomePage = () => {
             <h3 className="mb-6 text-xl font-semibold">Latest Activities</h3>
 
             <div className="space-y-4">
-              {!client!.petList ? (<p>No activity to show</p>) : client!.petList.map((pet) => <PetActivity petName={pet.petName} appoiment={pet.appointments[pet.appointments.length - 1]} />)}
+              {!client!.petList ? (
+                <p>No activity to show</p>
+              ) : (
+                client!.petList.map((pet) => (
+                  <PetActivity
+                    petName={pet.petName}
+                    appoiment={pet.appointments[pet.appointments.length - 1]}
+                  />
+                ))
+              )}
             </div>
           </div>
         </div>
