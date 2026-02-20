@@ -7,33 +7,22 @@
       "email": "ana.lopez@example.com",
       "phone": "+506 8877-4456",
       "password": "AnaML123",
+      "profilePhotoUrl": "https://randomuser.me/api/portraits/women/44.jpg",
       "petList": [
         {
           "petName": "Milo",
           "species": "Dog",
           "breed": "Labrador Retriever",
           "age": 4,
+          "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAbCH85-XTGMTpYRXNJ5ncQF7qjZ6sfK733_-uN0Gy8lO3HQ8F47X3xXBJGobW24Nsg_e1NYvoIFPRuCe1020oVA5kDERYZbzPpR7m9iPESQ&s=10",
           "appointmentDescriptions": [
             "2025-01-10: Annual vaccination and dental check-up",
             "2024-06-05: Consultation for dermatitis - topical treatment"
           ],
-          "vaccines": [
-            "Rabies",
-            "Parvovirus",
-            "Distemper",
-            "Adenovirus"
-          ],
+          "vaccines": ["Rabies", "Parvovirus", "Distemper", "Adenovirus"],
           "appointments": [
-            {
-              "date": "2025-01-10",
-              "service": "Annual vaccination",
-              "veterinarian": "Dr. Pérez"
-            },
-            {
-              "date": "2024-06-05",
-              "service": "Dermatology consultation",
-              "veterinarian": "Dr. Morales"
-            }
+            { "date": "2025-01-10", "service": "Annual vaccination", "veterinarian": "Dr. Pérez" },
+            { "date": "2024-06-05", "service": "Dermatology consultation", "veterinarian": "Dr. Morales" }
           ]
         },
         {
@@ -41,20 +30,13 @@
           "species": "Cat",
           "breed": "European Shorthair",
           "age": 2,
+          "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLpd8VCcuaqJGGbebUGycVx8jMlyg9jZa2YnqVED-_ONc-77a4SAcr1VBRPionh2_ZA6YxFfDU3UnFi2PZFw4nulC008cNJ51hBOBshWMpbA&s=10",
           "appointmentDescriptions": [
             "2024-11-20: Spaying surgery with no complications"
           ],
-          "vaccines": [
-            "Feline Leukemia",
-            "Panleukopenia",
-            "Rabies"
-          ],
+          "vaccines": ["Feline Leukemia", "Panleukopenia", "Rabies"],
           "appointments": [
-            {
-              "date": "2024-11-20",
-              "service": "Spaying surgery",
-              "veterinarian": "Dr. García"
-            }
+            { "date": "2024-11-20", "service": "Spaying surgery", "veterinarian": "Dr. García" }
           ]
         }
       ]
@@ -66,22 +48,20 @@
       "email": "carlos.vargas@mailfalso.com",
       "phone": "+506 8422-1199",
       "password": "CEV009",
+      "profilePhotoUrl": "https://randomuser.me/api/portraits/men/32.jpg",
       "petList": [
         {
           "petName": "Kiko",
           "species": "Bird",
           "breed": "Budgerigar",
           "age": 1,
+          "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Budgerigar.jpg",
           "appointmentDescriptions": [
             "2024-08-02: Wing check and nail trimming"
           ],
           "vaccines": [],
           "appointments": [
-            {
-              "date": "2024-08-02",
-              "service": "General check-up",
-              "veterinarian": "Dr. Fuentes"
-            }
+            { "date": "2024-08-02", "service": "General check-up", "veterinarian": "Dr. Fuentes" }
           ]
         }
       ]
@@ -93,32 +73,22 @@
       "email": "mfer.cruz@example.org",
       "phone": "+506 8680-3321",
       "password": "Fernanda842",
+      "profilePhotoUrl": "https://randomuser.me/api/portraits/women/68.jpg",
       "petList": [
         {
           "petName": "Nube",
           "species": "Cat",
           "breed": "Siamese",
           "age": 6,
+          "photoUrl": "https://cataas.com/cat/sleepy",
           "appointmentDescriptions": [
             "2025-02-01: Annual cardiac check-up",
             "2023-12-15: Blood tests due to weight loss"
           ],
-          "vaccines": [
-            "Panleukopenia",
-            "Rhinotracheitis",
-            "Calicivirus"
-          ],
+          "vaccines": ["Panleukopenia", "Rhinotracheitis", "Calicivirus"],
           "appointments": [
-            {
-              "date": "2025-02-01",
-              "service": "Cardiology check-up",
-              "veterinarian": "Dr. Salinas"
-            },
-            {
-              "date": "2023-12-15",
-              "service": "Full blood work",
-              "veterinarian": "Dr. Ortega"
-            }
+            { "date": "2025-02-01", "service": "Cardiology check-up", "veterinarian": "Dr. Salinas" },
+            { "date": "2023-12-15", "service": "Full blood work", "veterinarian": "Dr. Ortega" }
           ]
         },
         {
@@ -126,18 +96,13 @@
           "species": "Rabbit",
           "breed": "Mini Lop",
           "age": 3,
+          "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Mini_Lop_Rabbit.jpg",
           "appointmentDescriptions": [
             "2024-03-10: Dental consultation - incisor trimming"
           ],
-          "vaccines": [
-            "Myxomatosis (region dependent)"
-          ],
+          "vaccines": ["Myxomatosis (region dependent)"],
           "appointments": [
-            {
-              "date": "2024-03-10",
-              "service": "Dental consultation",
-              "veterinarian": "Dr. Pacheco"
-            }
+            { "date": "2024-03-10", "service": "Dental consultation", "veterinarian": "Dr. Pacheco" }
           ]
         }
       ]
@@ -149,22 +114,20 @@
       "email": "jorge.mendez@correo-falso.io",
       "phone": "+506 8991-0077",
       "password": "jorge222",
+      "profilePhotoUrl": "https://randomuser.me/api/portraits/men/76.jpg",
       "petList": [
         {
           "petName": "Sushi",
           "species": "Reptile",
           "breed": "Leopard Gecko",
           "age": 2,
+          "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Eublepharis_macularius1.jpg",
           "appointmentDescriptions": [
             "2024-05-22: Shedding and habitat check (temperature/humidity)"
           ],
           "vaccines": [],
           "appointments": [
-            {
-              "date": "2024-05-22",
-              "service": "General check-up",
-              "veterinarian": "Dr. Rojas"
-            }
+            { "date": "2024-05-22", "service": "General check-up", "veterinarian": "Dr. Rojas" }
           ]
         }
       ]
@@ -176,32 +139,22 @@
       "email": "valentina.soto@ejemplo.com",
       "phone": "+506 8777-2233",
       "password": "St554",
+      "profilePhotoUrl": "https://randomuser.me/api/portraits/women/12.jpg",
       "petList": [
         {
           "petName": "Oso",
           "species": "Dog",
           "breed": "French Bulldog",
           "age": 5,
+          "photoUrl": "https://images.dog.ceo/breeds/bulldog-french/n02108915_5306.jpg",
           "appointmentDescriptions": [
             "2025-03-15: Ear cleaning due to wax buildup",
             "2024-09-10: Booster vaccination"
           ],
-          "vaccines": [
-            "Rabies",
-            "Leptospirosis",
-            "Parvovirus"
-          ],
+          "vaccines": ["Rabies", "Leptospirosis", "Parvovirus"],
           "appointments": [
-            {
-              "date": "2025-03-15",
-              "service": "Ear cleaning",
-              "veterinarian": "Dr. Herrera"
-            },
-            {
-              "date": "2024-09-10",
-              "service": "Booster vaccination",
-              "veterinarian": "Dr. Campos"
-            }
+            { "date": "2025-03-15", "service": "Ear cleaning", "veterinarian": "Dr. Herrera" },
+            { "date": "2024-09-10", "service": "Booster vaccination", "veterinarian": "Dr. Campos" }
           ]
         },
         {
@@ -209,18 +162,13 @@
           "species": "Cat",
           "breed": "Mixed Breed",
           "age": 8,
+          "photoUrl": "https://cataas.com/cat/cute",
           "appointmentDescriptions": [
             "2024-10-30: Annual geriatric check-up"
           ],
-          "vaccines": [
-            "Rabies"
-          ],
+          "vaccines": ["Rabies"],
           "appointments": [
-            {
-              "date": "2024-10-30",
-              "service": "Geriatric check-up",
-              "veterinarian": "Dr. León"
-            }
+            { "date": "2024-10-30", "service": "Geriatric check-up", "veterinarian": "Dr. León" }
           ]
         }
       ]
