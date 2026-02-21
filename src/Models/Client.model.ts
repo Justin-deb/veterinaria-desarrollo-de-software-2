@@ -7,5 +7,6 @@ export interface Client {
   email: string;
   phone: string;
   password: string;
+  profilePhotoUrl:string;
   petList: Pet[];
 }

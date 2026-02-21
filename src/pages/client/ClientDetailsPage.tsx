@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import type { Client } from "../models/Client.model";
-import { ClientContext } from "../context/ClientContext";
-import { getClientByID, updateClient } from "../services/Client.service";
+import type { Client } from "../../models/Client.model";
+import { ClientContext } from "../../context/ClientContext";
+import { getClientByID, updateClient } from "../../services/Client.service";
 import { FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -80,7 +80,7 @@ const ClientDetailsPage = () => {
 
       <div className="w-full max-w-2xl mx-auto bg-zinc-900 border border-zinc-800 rounded-2xl p-6 sm:p-8 shadow-lg">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-          {/* left: avatar + text */}
+          
           <div className="flex items-center gap-4 sm:gap-6">
             <div className="relative">
               <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full border-2 border-purple-500 bg-zinc-800 overflow-hidden flex items-center justify-center">
@@ -134,7 +134,7 @@ const ClientDetailsPage = () => {
               <label className="block mb-2 text-sm text-zinc-400">
                 Last Name
               </label>
-              <input
+              <input datatype="lastNameInput"
                 type="text"
                 name="lastName"
                 value={client?.lastName ?? ""}
@@ -177,6 +177,7 @@ const ClientDetailsPage = () => {
 
           <div className="space-y-4">
             <button
+              datatype="saveChangesButton"
               type="submit"
               className="w-full bg-linear-to-r from-purple-600 to-purple-500 hover:opacity-90 transition rounded-lg py-3 font-semibold"
             >

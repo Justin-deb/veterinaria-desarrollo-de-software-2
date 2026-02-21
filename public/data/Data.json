@@ -3,7 +3,7 @@
     {
       "id": "1",
       "firstName": "Ana",
-      "lastName": "López ",
+      "lastName": "López",
       "email": "ana.lopez@example.com",
       "phone": "+506 8877-4456",
       "password": "AnaML123",
@@ -19,10 +19,23 @@
             "2025-01-10: Annual vaccination and dental check-up",
             "2024-06-05: Consultation for dermatitis - topical treatment"
           ],
-          "vaccines": ["Rabies", "Parvovirus", "Distemper", "Adenovirus"],
+          "vaccines": [
+            "Rabies",
+            "Parvovirus",
+            "Distemper",
+            "Adenovirus"
+          ],
           "appointments": [
-            { "date": "2025-01-10", "service": "Annual vaccination", "veterinarian": "Dr. Pérez" },
-            { "date": "2024-06-05", "service": "Dermatology consultation", "veterinarian": "Dr. Morales" }
+            {
+              "date": "2025-01-10",
+              "service": "Annual vaccination",
+              "veterinarian": "Dr. Pérez"
+            },
+            {
+              "date": "2024-06-05",
+              "service": "Dermatology consultation",
+              "veterinarian": "Dr. Morales"
+            }
           ]
         },
         {
@@ -34,9 +47,17 @@
           "appointmentDescriptions": [
             "2024-11-20: Spaying surgery with no complications"
           ],
-          "vaccines": ["Feline Leukemia", "Panleukopenia", "Rabies"],
+          "vaccines": [
+            "Feline Leukemia",
+            "Panleukopenia",
+            "Rabies"
+          ],
           "appointments": [
-            { "date": "2024-11-20", "service": "Spaying surgery", "veterinarian": "Dr. García" }
+            {
+              "date": "2024-11-20",
+              "service": "Spaying surgery",
+              "veterinarian": "Dr. García"
+            }
           ]
         }
       ]
@@ -61,7 +82,11 @@
           ],
           "vaccines": [],
           "appointments": [
-            { "date": "2024-08-02", "service": "General check-up", "veterinarian": "Dr. Fuentes" }
+            {
+              "date": "2024-08-02",
+              "service": "General check-up",
+              "veterinarian": "Dr. Fuentes"
+            }
           ]
         }
       ]
@@ -85,10 +110,22 @@
             "2025-02-01: Annual cardiac check-up",
             "2023-12-15: Blood tests due to weight loss"
           ],
-          "vaccines": ["Panleukopenia", "Rhinotracheitis", "Calicivirus"],
+          "vaccines": [
+            "Panleukopenia",
+            "Rhinotracheitis",
+            "Calicivirus"
+          ],
           "appointments": [
-            { "date": "2025-02-01", "service": "Cardiology check-up", "veterinarian": "Dr. Salinas" },
-            { "date": "2023-12-15", "service": "Full blood work", "veterinarian": "Dr. Ortega" }
+            {
+              "date": "2025-02-01",
+              "service": "Cardiology check-up",
+              "veterinarian": "Dr. Salinas"
+            },
+            {
+              "date": "2023-12-15",
+              "service": "Full blood work",
+              "veterinarian": "Dr. Ortega"
+            }
           ]
         },
         {
@@ -100,9 +137,15 @@
           "appointmentDescriptions": [
             "2024-03-10: Dental consultation - incisor trimming"
           ],
-          "vaccines": ["Myxomatosis (region dependent)"],
+          "vaccines": [
+            "Myxomatosis (region dependent)"
+          ],
           "appointments": [
-            { "date": "2024-03-10", "service": "Dental consultation", "veterinarian": "Dr. Pacheco" }
+            {
+              "date": "2024-03-10",
+              "service": "Dental consultation",
+              "veterinarian": "Dr. Pacheco"
+            }
           ]
         }
       ]
@@ -127,7 +170,11 @@
           ],
           "vaccines": [],
           "appointments": [
-            { "date": "2024-05-22", "service": "General check-up", "veterinarian": "Dr. Rojas" }
+            {
+              "date": "2024-05-22",
+              "service": "General check-up",
+              "veterinarian": "Dr. Rojas"
+            }
           ]
         }
       ]
@@ -151,10 +198,22 @@
             "2025-03-15: Ear cleaning due to wax buildup",
             "2024-09-10: Booster vaccination"
           ],
-          "vaccines": ["Rabies", "Leptospirosis", "Parvovirus"],
+          "vaccines": [
+            "Rabies",
+            "Leptospirosis",
+            "Parvovirus"
+          ],
           "appointments": [
-            { "date": "2025-03-15", "service": "Ear cleaning", "veterinarian": "Dr. Herrera" },
-            { "date": "2024-09-10", "service": "Booster vaccination", "veterinarian": "Dr. Campos" }
+            {
+              "date": "2025-03-15",
+              "service": "Ear cleaning",
+              "veterinarian": "Dr. Herrera"
+            },
+            {
+              "date": "2024-09-10",
+              "service": "Booster vaccination",
+              "veterinarian": "Dr. Campos"
+            }
           ]
         },
         {
@@ -166,9 +225,15 @@
           "appointmentDescriptions": [
             "2024-10-30: Annual geriatric check-up"
           ],
-          "vaccines": ["Rabies"],
+          "vaccines": [
+            "Rabies"
+          ],
           "appointments": [
-            { "date": "2024-10-30", "service": "Geriatric check-up", "veterinarian": "Dr. León" }
+            {
+              "date": "2024-10-30",
+              "service": "Geriatric check-up",
+              "veterinarian": "Dr. León"
+            }
           ]
         }
       ]

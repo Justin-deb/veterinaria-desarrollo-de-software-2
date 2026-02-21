@@ -1,8 +1,8 @@
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
-import type { Pet } from "../models/Pet.model";
-import { getPetByName } from "../services/Pet.service";
-import { ClientContext } from "../context/ClientContext";
+import type { Pet } from "../../models/Pet.model";
+import { getPetByName } from "../../services/Pet.service";
+import { ClientContext } from "../../context/ClientContext";
 import {
   PawPrint,
   Syringe,
@@ -65,22 +65,16 @@ export default function PetProfilePage() {
     return <Navigate to="/login" />;
   }
 
-  /*const header_subtitle = useMemo(() => {
-    if (!pet) return "";
-    return [pet.species, pet.breed].filter(Boolean).join(" • ");
-  }, [pet]); */
-
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Background glow */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-32 left-1/2 h-[620px] w-[620px] -translate-x-1/2 rounded-full bg-purple-600/20 blur-3xl" />
-        <div className="absolute right-0 top-1/3 h-[420px] w-[420px] rounded-full bg-indigo-500/10 blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-[380px] w-[380px] rounded-full bg-fuchsia-500/10 blur-3xl" />
+        <div className="absolute -top-32 left-1/2 h-155 w-155 -translate-x-1/2 rounded-full bg-purple-600/20 blur-3xl" />
+        <div className="absolute right-0 top-1/3 h-105 w-105 rounded-full bg-indigo-500/10 blur-3xl" />
+        <div className="absolute bottom-0 left-0 h-95 w-95 rounded-full bg-fuchsia-500/10 blur-3xl" />
       </div>
 
       <div className="relative mx-auto w-full max-w-6xl px-6 py-12">
-        {/* Back */}
+        
         <div className="mb-8">
           <Link
             to="/pets"
@@ -91,7 +85,6 @@ export default function PetProfilePage() {
           </Link>
         </div>
 
-        {/* Loading */}
         {loading && (
           <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-8">
             <div className="flex items-center gap-4">
@@ -110,7 +103,6 @@ export default function PetProfilePage() {
           </div>
         )}
 
-        {/* Error */}
         {!loading && error && (
           <div className="rounded-2xl border border-red-500/30 bg-red-500/10 p-6 text-red-200">
             <div className="flex items-start gap-3">
@@ -123,7 +115,6 @@ export default function PetProfilePage() {
           </div>
         )}
 
-        {/* Not found */}
         {!loading && !error && !pet && (
           <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-8">
             <p className="text-lg font-semibold">Pet not found</p>
@@ -135,10 +126,8 @@ export default function PetProfilePage() {
           </div>
         )}
 
-        {/* Content */}
         {!loading && !error && pet && (
           <>
-            {/* Header */}
             <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
               <div>
                 <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
@@ -147,17 +136,16 @@ export default function PetProfilePage() {
                   {normalize_name(pet.petName)}
                 </div>
 
-                <h1 className="mt-4 text-4xl font-bold tracking-tight">
+                <h1 datatype='petName' className="mt-4 text-4xl font-bold tracking-tight">
                   {pet.petName}
                 </h1>
 
                 <p className="mt-2 text-zinc-400">{[pet.species, pet.breed].filter(Boolean).join(" • ") || "—"}</p>
               </div>
 
-              {/* Corner badge (simple + pro) */}
               <div className="hidden md:flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 shadow-[0_0_0_1px_rgba(255,255,255,0.04)] backdrop-blur">
                 <div className="relative">
-                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-purple-500/35 to-fuchsia-500/15 ring-1 ring-white/10">
+                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-linear-to-br from-purple-500/35 to-fuchsia-500/15 ring-1 ring-white/10">
                     <span className="text-2xl">
                       {pick_pet_emoji(pet.species)}
                     </span>
@@ -167,7 +155,6 @@ export default function PetProfilePage() {
               </div>
             </div>
 
-            {/* Top cards */}
             <div className="mt-10 grid gap-6 md:grid-cols-3">
               <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-purple-600/15">
@@ -205,7 +192,6 @@ export default function PetProfilePage() {
               </div>
             </div>
 
-            {/* Tabs */}
             <div className="mt-10 rounded-2xl border border-zinc-800 bg-zinc-900 p-2">
               <div className="grid grid-cols-3 gap-2">
                 <button
@@ -243,9 +229,8 @@ export default function PetProfilePage() {
               </div>
             </div>
 
-            {/* Tab content */}
             <div className="mt-6 grid gap-6 lg:grid-cols-3">
-              {/* Main */}
+              
               <div className="lg:col-span-2">
                 {tab === "summary" && (
                   <section className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
@@ -257,12 +242,12 @@ export default function PetProfilePage() {
                     <div className="mt-6 grid gap-4 sm:grid-cols-2">
                       <div className="rounded-xl border border-zinc-800 bg-black/30 p-4">
                         <p className="text-xs text-zinc-500">Species</p>
-                        <p className="mt-1 font-semibold">{pet.species}</p>
+                        <p datatype='petSpecies' className="mt-1 font-semibold">{pet.species}</p>
                       </div>
 
                       <div className="rounded-xl border border-zinc-800 bg-black/30 p-4">
                         <p className="text-xs text-zinc-500">Breed</p>
-                        <p className="mt-1 font-semibold">{pet.breed}</p>
+                        <p datatype='petBreed' className="mt-1 font-semibold">{pet.breed}</p>
                       </div>
 
                       <div className="rounded-xl border border-zinc-800 bg-black/30 p-4">
@@ -382,7 +367,6 @@ export default function PetProfilePage() {
                 )}
               </div>
 
-              {/* Side card */}
               <aside className="space-y-6">
                 <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
                   <h3 className="text-base font-semibold">Owner notes</h3>
