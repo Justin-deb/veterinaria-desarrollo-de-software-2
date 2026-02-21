@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { ClientContext } from "../context/ClientContext";
+import { ClientContext } from "../../context/ClientContext";
 import { FaPaw } from "react-icons/fa";
 
 const Navbar = () => {
@@ -9,7 +9,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     clientContext.setClientID("-1");
-    localStorage.removeItem("clientID");
+    sessionStorage.removeItem("clientID");
     navigate("/login");
   };
 
@@ -24,7 +24,6 @@ const Navbar = () => {
           <span className="ml-1 font-semibold text-white">Veterinary</span>
         </NavLink>
 
-        {/* Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           <NavLink to="/" end className="no-underline">
             {({ isActive }) => (
@@ -35,7 +34,7 @@ const Navbar = () => {
             )}
           </NavLink>
 
-          <NavLink to="/pets" className="no-underline">
+          <NavLink datatype='nav-pets' to="/pets" className="no-underline">
             {({ isActive }) => (
               <div className="flex flex-col items-center gap-1">
                 <span className={`text-sm ${isActive ? "text-purple-400 font-semibold" : "text-gray-300 hover:text-white"}`}>Pets</span>
@@ -44,7 +43,7 @@ const Navbar = () => {
             )}
           </NavLink>
 
-          <NavLink to="/clientDetails" className="no-underline">
+          <NavLink datatype="nav-clientDetails" to="/clientDetails" className="no-underline">
             {({ isActive }) => (
               <div className="flex flex-col items-center gap-1">
                 <span className={`text-sm ${isActive ? "text-purple-400 font-semibold" : "text-gray-300 hover:text-white"}`}>Profile</span>
@@ -54,13 +53,12 @@ const Navbar = () => {
           </NavLink>
         </nav>
 
-        {/* Actions: avatar / login */}
         <div className="flex items-center gap-4">
           <NavLink to="/clientDetails" title="Mi cuenta" className="w-9 h-9 rounded-full bg-linear-to-tr from-purple-600 to-pink-500 flex items-center justify-center text-white text-sm font-medium ring-1 ring-neutral-800 cursor-pointer text-center">
             U
           </NavLink>
 
-          <button onClick={handleLogout} className="hidden sm:inline-flex ml-2 items-center gap-2 bg-neutral-800 text-sm text-gray-200 px-3 py-1.5 rounded hover:bg-neutral-700">
+          <button datatype='logoutButton' onClick={handleLogout} className="hidden sm:inline-flex ml-2 items-center gap-2 bg-neutral-800 text-sm text-gray-200 px-3 py-1.5 rounded hover:bg-neutral-700">
             Logout
           </button>
         </div>

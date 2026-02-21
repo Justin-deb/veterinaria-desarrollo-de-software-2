@@ -5,19 +5,19 @@ import { ClientContext } from './context/ClientContext';
 import { useEffect, useState } from 'react';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
-import PetProfilePage from './pages/PetProfilePage';
+import PetProfilePage from './pages/pet/PetProfilePage';
 import NotFoundPage from './pages/NotFoundPage';
-import PetListPage from './pages/PetListPage';
-import ClientDetailsPage from './pages/ClientDetailsPage';
+import PetListPage from './pages/pet/PetListPage';
+import ClientDetailsPage from './pages/client/ClientDetailsPage';
 
 function App() {
   const [clientID, setClientID] = useState<string>(
-    localStorage.getItem('clientID') || '-1'
+    sessionStorage.getItem('clientID') || '-1'
   );
 
   useEffect(() => {
     if (clientID !== null) {
-      localStorage.setItem("clientID", clientID);
+      sessionStorage.setItem("clientID", clientID);
     }
   }, [clientID]);
 
