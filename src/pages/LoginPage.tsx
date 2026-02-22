@@ -37,7 +37,7 @@ const LoginPage = () => {
       }
 
       const foundID:string|null = await LoginClient(normalized_email,password);
-
+      console.log("Login result ", foundID);
       if (!foundID) {
         set_error("No account found with this email address.");
         return;
@@ -54,9 +54,9 @@ const LoginPage = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-24 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-purple-600/20 blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-[420px] w-[420px] rounded-full bg-fuchsia-500/10 blur-3xl" />
-        <div className="absolute right-0 top-1/3 h-[420px] w-[420px] rounded-full bg-indigo-500/10 blur-3xl" />
+        <div className="absolute -top-24 left-1/2 h-130 w-130 -translate-x-1/2 rounded-full bg-purple-600/20 blur-3xl" />
+        <div className="absolute bottom-0 left-0 h-105 w-105 rounded-full bg-fuchsia-500/10 blur-3xl" />
+        <div className="absolute right-0 top-1/3 h-105 w-105 rounded-full bg-indigo-500/10 blur-3xl" />
       </div>
 
       <div className="relative mx-auto flex min-h-screen w-full max-w-6xl items-center px-6 py-10">
@@ -64,7 +64,7 @@ const LoginPage = () => {
           <div className="hidden lg:block">
             <div className="inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-2 backdrop-blur">
               <div className="relative">
-                <div className="grid h-10 w-10 place-items-center rounded-2xl bg-gradient-to-br from-purple-500/40 to-fuchsia-500/20 ring-1 ring-white/10">
+                <div className="grid h-10 w-10 place-items-center rounded-2xl bg-linear-to-br from-purple-500/40 to-fuchsia-500/20 ring-1 ring-white/10">
                   <PawPrint className="h-5 w-5 text-purple-200" />
                 </div>
                 <span className="absolute -bottom-1 -right-1 h-3 w-3 rounded-full bg-emerald-400 ring-2 ring-black" />
@@ -137,7 +137,7 @@ const LoginPage = () => {
 
               {error && (
                 <div className="mt-5 flex items-start gap-3 rounded-2xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-200">
-                  <AlertCircle className="mt-0.5 h-4 w-4 flex-shrink-0" />
+                  <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
                   <p>{error}</p>
                 </div>
               )}
@@ -153,7 +153,7 @@ const LoginPage = () => {
                   </label>
                   <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/40 px-4 py-3">
                     <Mail className="h-4 w-4 text-white/50" />
-                    <input
+                    <input datatype="email"
                       value={email}
                       onChange={(e) => set_email(e.target.value)}
                       type="email"
@@ -169,7 +169,7 @@ const LoginPage = () => {
                   </label>
                   <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/40 px-4 py-3">
                     <Lock className="h-4 w-4 text-white/50" />
-                    <input
+                    <input datatype="password"
                       value={password}
                       onChange={(e) => set_password(e.target.value)}
                       type="password"
@@ -180,6 +180,7 @@ const LoginPage = () => {
                 </div>
 
                 <button
+                  datatype="loginButton"
                   type="submit"
                   disabled={is_loading}
                   className="group mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-purple-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-purple-500 disabled:opacity-70"
