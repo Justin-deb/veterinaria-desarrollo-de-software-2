@@ -47,12 +47,12 @@ describe('Go to clientDetails, modify the last name, save, enter again and check
   })
 });
 
-describe('Go to pet list, get the first pet, check if it is the correct pet name, species and breed, and finally logout',() =>{
+describe('Go to pet list, get the first pet, check if it is the correct pet name, species and breed',() =>{
   before(function(){
     cy.login()
   });
 
-  it("Goes to 'My pets', click the first card, validate data and logout",() => {
+  it("Goes to 'My pets', click the first card, validate data",() => {
     cy.visit('http://localhost:5173/');
     cy.location('pathname').should("eq","/")
     cy.get('[datatype=nav-pets]').click();
