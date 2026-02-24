@@ -7,15 +7,14 @@ import {
   Bell,
   Pencil,
   User,
-  AlertTriangle,
 } from "lucide-react";
 import type { Client } from "../models/Client.model";
 import { getClientByID } from "../services/Client.service";
-import PetActivity from "../components/PetActivity";
+import PetActivity from "../components/pet/PetActivity";
 
 const HomePage = () => {
   const date = new Date();
-  const options = {
+  const options: Intl.DateTimeFormatOptions = {
       weekday:'long',
       year:'numeric',
       month:'long',
@@ -55,7 +54,7 @@ const HomePage = () => {
       <div className="relative mx-auto w-full max-w-6xl px-6 py-12">
         <div className="flex items-start justify-between gap-6">
           <div>
-            <h1 className="text-4xl font-bold tracking-tight">
+            <h1 datatype="welcomeMessage" className="text-4xl font-bold tracking-tight">
               Welcome back, {client?.firstName}
             </h1>
             <p className="mt-2 text-zinc-400">
@@ -78,7 +77,7 @@ const HomePage = () => {
               <PawPrint className="h-5 w-5 text-purple-300" />
             </div>
             <p className="text-xs font-semibold tracking-wider text-zinc-400">
-              TOTAL PETS {/*Datos quemados que hay que quitar */}
+              TOTAL PETS
             </p>
             <p className="mt-2 text-4xl font-bold">
               {client.petList ? client.petList.length : 0}
@@ -112,7 +111,7 @@ const HomePage = () => {
             </p>
             <p className="mt-2 text-4xl font-bold">2</p>
             <p className="mt-1 text-sm text-zinc-500">
-              Vaccination &amp; Deworming due {/*quejezo */}
+              Vaccination & Deworming due
             </p>
           </div>
         </div>
@@ -140,8 +139,6 @@ const HomePage = () => {
         </div>
 
         <div className="mt-14">
-          <h3 className="mb-6 text-xl font-semibold">Latest Activities</h3>
-
           <div className="space-y-4">
             <h3 className="mb-6 text-xl font-semibold">Latest Activities</h3>
 

@@ -3,16 +3,18 @@
     {
       "id": "1",
       "firstName": "Ana",
-      "lastName": "López ",
+      "lastName": "López",
       "email": "ana.lopez@example.com",
       "phone": "+506 8877-4456",
       "password": "AnaML123",
+      "profilePhotoUrl": "https://randomuser.me/api/portraits/women/44.jpg",
       "petList": [
         {
           "petName": "Milo",
           "species": "Dog",
           "breed": "Labrador Retriever",
           "age": 4,
+          "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAbCH85-XTGMTpYRXNJ5ncQF7qjZ6sfK733_-uN0Gy8lO3HQ8F47X3xXBJGobW24Nsg_e1NYvoIFPRuCe1020oVA5kDERYZbzPpR7m9iPESQ&s=10",
           "appointmentDescriptions": [
             "2025-01-10: Annual vaccination and dental check-up",
             "2024-06-05: Consultation for dermatitis - topical treatment"
@@ -41,6 +43,7 @@
           "species": "Cat",
           "breed": "European Shorthair",
           "age": 2,
+          "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLpd8VCcuaqJGGbebUGycVx8jMlyg9jZa2YnqVED-_ONc-77a4SAcr1VBRPionh2_ZA6YxFfDU3UnFi2PZFw4nulC008cNJ51hBOBshWMpbA&s=10",
           "appointmentDescriptions": [
             "2024-11-20: Spaying surgery with no complications"
           ],
@@ -66,12 +69,14 @@
       "email": "carlos.vargas@mailfalso.com",
       "phone": "+506 8422-1199",
       "password": "CEV009",
+      "profilePhotoUrl": "https://randomuser.me/api/portraits/men/32.jpg",
       "petList": [
         {
           "petName": "Kiko",
           "species": "Bird",
           "breed": "Budgerigar",
           "age": 1,
+          "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Budgerigar.jpg",
           "appointmentDescriptions": [
             "2024-08-02: Wing check and nail trimming"
           ],
@@ -93,12 +98,14 @@
       "email": "mfer.cruz@example.org",
       "phone": "+506 8680-3321",
       "password": "Fernanda842",
+      "profilePhotoUrl": "https://randomuser.me/api/portraits/women/68.jpg",
       "petList": [
         {
           "petName": "Nube",
           "species": "Cat",
           "breed": "Siamese",
           "age": 6,
+          "photoUrl": "https://cataas.com/cat/sleepy",
           "appointmentDescriptions": [
             "2025-02-01: Annual cardiac check-up",
             "2023-12-15: Blood tests due to weight loss"
@@ -126,6 +133,7 @@
           "species": "Rabbit",
           "breed": "Mini Lop",
           "age": 3,
+          "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Mini_Lop_Rabbit.jpg",
           "appointmentDescriptions": [
             "2024-03-10: Dental consultation - incisor trimming"
           ],
@@ -149,12 +157,14 @@
       "email": "jorge.mendez@correo-falso.io",
       "phone": "+506 8991-0077",
       "password": "jorge222",
+      "profilePhotoUrl": "https://randomuser.me/api/portraits/men/76.jpg",
       "petList": [
         {
           "petName": "Sushi",
           "species": "Reptile",
           "breed": "Leopard Gecko",
           "age": 2,
+          "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Eublepharis_macularius1.jpg",
           "appointmentDescriptions": [
             "2024-05-22: Shedding and habitat check (temperature/humidity)"
           ],
@@ -176,12 +186,14 @@
       "email": "valentina.soto@ejemplo.com",
       "phone": "+506 8777-2233",
       "password": "St554",
+      "profilePhotoUrl": "https://randomuser.me/api/portraits/women/12.jpg",
       "petList": [
         {
           "petName": "Oso",
           "species": "Dog",
           "breed": "French Bulldog",
           "age": 5,
+          "photoUrl": "https://images.dog.ceo/breeds/bulldog-french/n02108915_5306.jpg",
           "appointmentDescriptions": [
             "2025-03-15: Ear cleaning due to wax buildup",
             "2024-09-10: Booster vaccination"
@@ -209,6 +221,7 @@
           "species": "Cat",
           "breed": "Mixed Breed",
           "age": 8,
+          "photoUrl": "https://cataas.com/cat/cute",
           "appointmentDescriptions": [
             "2024-10-30: Annual geriatric check-up"
           ],
