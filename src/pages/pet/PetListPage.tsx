@@ -1,12 +1,9 @@
 import { Link } from "react-router-dom"
-import { FaPlusCircle } from "react-icons/fa";
 import { useContext, useEffect, useState } from "react";
-import { ClientContext } from "../context/ClientContext";
-import type { Pet } from "../models/Pet.model";
-import { getPets } from "../services/Pet.service";
-import PetCard from "../components/PetCard";
-
-import { FaDog, FaCalendarAlt } from "react-icons/fa";
+import { ClientContext } from "../../context/ClientContext";
+import type { Pet } from "../../models/Pet.model";
+import { getPets } from "../../services/Pet.service";
+import PetCard from "../../components/pet/PetCard";
 
 const PetListPage = () => {
     const clientContext = useContext(ClientContext);
@@ -26,21 +23,22 @@ const PetListPage = () => {
         loadPets();
     }, [])
 
+    if(loading){
+        return(<p>Loading...</p>);
+    }
+
 
     return (
         <div className="min-h-screen bg-black text-gray-100">
 
-            {/* Page main */}
             <main className="mx-auto max-w-7xl px-6 py-10">
-                {/* Title */}
+
                 <section className="mb-8">
                     <h1 className="text-4xl font-extrabold">My Pets</h1>
                     <p className="mt-2 text-neutral-400">Central dashboard for your pet’s healthcare journey.</p>
                 </section>
 
-                {/* Cards */}
-                <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                    {/* Card (repeat 4 times; you can map this later) */}
+                <section datatype="petList" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                     {!petList ? (<p>No pets to show</p>) : petList.map((pet) => <PetCard pet={pet} />)}
                 </section>
 

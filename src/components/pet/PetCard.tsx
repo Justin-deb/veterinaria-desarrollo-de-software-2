@@ -1,13 +1,12 @@
-import type { Pet } from "../models/Pet.model";
+import type { Pet } from "../../models/Pet.model";
 import { FaDog, FaCalendarAlt } from "react-icons/fa";
 import { MdVaccines } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const PetCard = ({ pet }: { pet: Pet }) => {
   return (
-    <article className="bg-neutral-800 rounded-2xl shadow-lg overflow-hidden">
+    <article datatype="petCard" className="bg-neutral-800 rounded-2xl shadow-lg overflow-hidden">
 
-      {/* FOTO DE LA MASCOTA */}
       <div className="h-44 bg-neutral-700">
         {pet.photoUrl ? (
           <img
@@ -16,17 +15,16 @@ const PetCard = ({ pet }: { pet: Pet }) => {
             className="w-full h-full object-cover"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-gradient-to-b from-neutral-700 to-neutral-800">
+          <div className="w-full h-full flex items-center justify-center bg-linear-to-b from-neutral-700 to-neutral-800">
             <FaDog className="text-7xl text-purple-300" />
           </div>
         )}
       </div>
 
-      {/* INFO */}
       <div className="p-5">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-xl font-bold">{pet.petName}</h2>
+            <h2 datatype="petNameCard" className="text-xl font-bold">{pet.petName}</h2>
             <p className="text-sm text-purple-300">
               {pet.species} • {pet.breed}
             </p>
@@ -49,6 +47,7 @@ const PetCard = ({ pet }: { pet: Pet }) => {
 
         <div className="mt-6">
           <Link
+            datatype="viewPetDetailsButton"
             to={`/pets/${pet.petName}`}
             className="block w-full text-center bg-purple-500 hover:bg-purple-400 text-white py-2 rounded-lg font-semibold"
           >

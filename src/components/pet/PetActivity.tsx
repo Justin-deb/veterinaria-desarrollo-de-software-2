@@ -1,4 +1,4 @@
-import type { Appointment } from "../models/Appoiment.model"
+import type { Appointment } from "../../models/Appoiment.model"
 
 const PetActivity = ({appoiment,petName}:{appoiment:Appointment,petName:string}) => {
     return (
